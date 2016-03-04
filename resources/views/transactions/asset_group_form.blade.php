@@ -1,17 +1,19 @@
 @extends('../layouts.master')
 
-@section('title', 'Registro de Grupos | DebeHaber')
-@section('Title', 'Registro de Grupos')
+@section('title', 'Registro de Grupos Activos | DebeHaber')
+@section('Title', 'Registro de Grupos Activos')
 @section('breadcrumbs', Breadcrumbs::render('asset_group_form'))
 
 @section('content')
+    <style>
+        .error {
+            border-color: red;
+        }
 
-<link href="assets/plugins/x-editable/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet" type="text/css">
-<link href="assets/plugins/x-editable/inputs-ext/typeaheadjs/lib/typeahead.js-bootstrap.css" rel="stylesheet" type="text/css">
-<link href="assets/plugins/x-editable/inputs-ext/address/address.css" rel="stylesheet" type="text/css">
-<link href="assets/plugins/select2-3.4.8/select2.css" rel="stylesheet" type="text/css">
-<link href="assets/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css">
-<link href="assets/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" type="text/css">
+        .warning {
+            border-color: yellow;
+        }
+    </style>
 
 <!-- <script>
 $(document).ready(function() {
@@ -36,61 +38,84 @@ $(document).ready(function() {
         .find('[name="ipAddress"]').mask('099.099.099.099');
 });
 </script> -->
-
-<form class="form-horizontal" action="index.html" method="post">
+<div ng-app="formApp">
+    <div ng-controller="MainCtrl">
+<form class="form-horizontal" action="{{url()}}/save_asset_group_form" method="post" name="Form">
+    {!! csrf_field() !!}
+    <input type="hidden" name="usuario" value="{{Auth::user()->id}}">
 <div class="col-md-8">
     <div class="form-group">
-        <label for="inputEmail3" class="col-sm-3 control-label">Grupo</label>
+        <label for="name" class="col-sm-3 control-label">Grupo</label>
         <div class="col-sm-7">
-            <input type="text" class="form-control date-picker">
+            <input type="text" class="form-control " name="name" autocomplete="off" ng-model="formData.name" required
+                   ng-class="{ error: Form.name.$error.required && !Form.$pristine}">
         </div>
         <div class="col-sm-2">
 
         </div>
     </div>
     <div class="form-group">
-        <label for="inputEmail3" class="col-sm-3 control-label">Tipología</label>
-        <div class="col-sm-4">
-            <input type="text" class="form-control" id="tbxObject" placeholder="Tipología">
-        </div>
-        <div class="col-sm-5">
-            <a href="#" id="timbrado" data-type="text" data-pk="1" data-title="Enter username" class="editable editable-click" style="display: inline;">Tangibles</a>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="inputPassword3" class="col-sm-3 control-label">Coeficiente de Revaluó</label>
+        <label for="tipologia" class="col-sm-3 control-label">Tipología</label>
         <div class="col-sm-7">
-            <input type="text" class="form-control" id="tbxDocument" placeholder="Tipo de Factura">
+            <select class="select form-control" id="single" name="tipologia" autocomplete="off" ng-model="formData.tipologia" required
+                    ng-class="{ error: Form.tipologia.$error.required && !Form.$pristine}">
+                  
+                <option value="1">Tangibles</option>
+                <option value="0">Intangibles</option>
+                </select>
+
+            </div>
+        </div>
+<!--        <div class="col-sm-5">
+            <a href="#" id="timbrado" data-type="text" data-pk="1" data-title="Enter username" class="editable editable-click" style="display: inline;">Tangibles</a>
+        </div>-->
+    
+    <div class="form-group">
+        <label for="revaluo" class="col-sm-3 control-label">Coeficiente de Revaluó</label>
+        <div class="col-sm-7">
+            <input type="text" class="form-control" name="revaluo" placeholder="Tipo de Factura" autocomplete="off" ng-model="formData.revaluo" required
+                   ng-class="{ error: Form.revaluo.$error.required && !Form.$pristine}">
         </div>
         <div class="col-sm-2">
             <a href="#" id="timbrado" data-type="text" data-pk="1" data-title="Enter username" class="editable editable-click" style="display: inline;">10%</a>
         </div>
     </div>
     <div class="form-group">
-        <label for="inputPassword3" class="col-sm-3 control-label">Vida Útil</label>
+        <label for="vida_util" class="col-sm-3 control-label">Vida Útil</label>
         <div class="col-sm-7">
-            <input type="text" class="form-control" id="tbxDocument" placeholder="Años de Vida Util">
+            <input type="text" class="form-control" name="vida_util" placeholder="Años de Vida Util" autocomplete="off" ng-model="formData.vida_util" required
+                   ng-class="{ error: Form.vida_util.$error.required && !Form.$pristine}">
         </div>
     </div>
     <div class="col-sm-3">
     <!-- Empty Space to push DataGrid  -->
     </div>
 </div>
+  
 <div class="col-md-4">
     <div class="form-group">
         <label for="inputPassword3" class="control-label">Concepto</label>
         <div class="note-editable" contenteditable="true" spellcheck="true" lang="es"></div>
     </div>
     <div class="form-group">
-        <button type="submit" class="btn btn-success">Guardar</button>
+        <button type="submit" class="btn btn-success" ng-click="submitForm(formData)" ng-disabled="!Form.$valid">Guardar</button>
     </div>
 </div>
 </form>
+</div>
+</div>
 
-<!-- <script src="assets/plugins/x-editable/bootstrap3-editable/js/bootstrap-editable.js"></script>
-<script src="assets/plugins/x-editable/inputs-ext/typeaheadjs/lib/typeahead.js"></script>
-<script src="assets/plugins/x-editable/inputs-ext/typeaheadjs/typeaheadjs.js"></script>
-<script src="assets/plugins/x-editable/inputs-ext/address/address.js"></script>
-<script src="assets/plugins/select2-3.4.8/select2.min.js"></script>
-<script src="assets/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script> -->
+@endsection
+@section('scripts')
+    <script>
+        var app = angular.module('formApp', []);
+
+        app.controller('MainCtrl', function($scope) {
+            $scope.formData = {};
+
+            $scope.submitForm = function (formData) {
+
+            };
+        });
+    </script>
 @endsection

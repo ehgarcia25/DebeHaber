@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
@@ -135,7 +135,10 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
+		Illuminate\Html\HtmlServiceProvider::class,
+        Laracasts\Flash\FlashServiceProvider::class,
+        Mitul\Generator\GeneratorServiceProvider::class,
+        Appzcoder\CrudGenerator\CrudGeneratorServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -143,7 +146,17 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+		   Collective\Html\HtmlServiceProvider::class,
+	    Pingpong\Modules\ModulesServiceProvider::class,
+      Pingpong\Generators\GeneratorsServiceProvider::Class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
+		JasperPHP\JasperPHPServiceProvider::class,
+		Barryvdh\Snappy\ServiceProvider::class,
+		MaddHatter\LaravelFullcalendar\ServiceProvider::class,
+		  
         'DaveJamesMiller\Breadcrumbs\ServiceProvider',
+
     ],
 
     /*
@@ -192,6 +205,16 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
         'Breadcrumbs' => 'DaveJamesMiller\Breadcrumbs\Facade',
+		'Form'  => Illuminate\Html\FormFacade::class,
+        'HTML'  => Illuminate\Html\HtmlFacade::class,
+        'Flash' => Laracasts\Flash\Flash::class,
+        'Form'  => Collective\Html\FormFacade::class,
+        'HTML'  => Collective\Html\HtmlFacade::class,
+	    'Module' => Pingpong\Modules\Facades\Module::class,
+        'Image' => Intervention\Image\Facades\Image::class,
+        'Calendar' => MaddHatter\LaravelFullcalendar\Facades\Calendar::class,
+
+
     ],
 
 ];

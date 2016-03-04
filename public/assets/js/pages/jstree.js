@@ -18,6 +18,7 @@ $( document ).ready(function() {
     });
     
     // Checkbox
+	
     $('#checkTree').jstree({
 		'core' : {
 			'themes' : {

@@ -34,12 +34,34 @@
                 font-size: 96px;
             }
         </style>
+        <link href="{{url()}}/bootstrap/css/bootstrap.min.css" />
+        <script  type="text/javascript" src="{{url()}}/bootstrap/js/jquery-1.11.3.min.js"></script>
+        <script  type="text/javascript" src="{{url()}}/public/bootstrap/js/bootstrap.min.js"></script>
     </head>
     <body>
+        
+        <button class="prueba"> dar</button>
+        
+        
         <div class="container">
             <div class="content">
                 <div class="title">Laravel 5</div>
             </div>
         </div>
+
+
+<script type="text/javascript">
+
+$(document).ready(function (){
+    
+    $('.prueba').click(function (){
+        alert("todo ok");
+        
+    });
+});
+
+
+
+</script>
     </body>
 </html>
