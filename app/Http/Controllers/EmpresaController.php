@@ -1,7 +1,10 @@
 <?php namespace App\Http\Controllers;
 
 use App\CostCenter;
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Relaciones;
@@ -13,7 +16,11 @@ use Illuminate\Routing\Route;
 class EmpresaController extends Controller
 {
     private $route;
+<<<<<<< HEAD
 //
+=======
+//  
+>>>>>>> origin/master
     public function __construct(Route $route)
     {
         $this->middleware('auth');
@@ -61,7 +68,11 @@ class EmpresaController extends Controller
             $empresa->gov_code = $request->ruc;
             $empresa->accounting_id = \Auth::user()->company_id;
             $empresa->email = $request->email;
+<<<<<<< HEAD
 
+=======
+            $empresa->razon_social = $request->razon_social;
+>>>>>>> origin/master
             $empresa->telefono = $request->telefono;
             $empresa->direccion = $request->direccion;
             $empresa->country_id = 1;
@@ -111,7 +122,11 @@ class EmpresaController extends Controller
 
 
             Empresa::where('id', $id)
+<<<<<<< HEAD
                 ->update(['name' => $name, 'alias' => $alias,'gov_code'=>$ruc,'telefono'=>$request->telefono,'direccion'=>$request->direccion,
+=======
+                ->update(['name' => $name, 'alias' => $alias,'gov_code'=>$ruc,'razon_social'=>$request->razon_social,'telefono'=>$request->telefono,'direccion'=>$request->direccion,
+>>>>>>> origin/master
                     'email'=> $request->email]);
 
 
@@ -187,4 +202,8 @@ class EmpresaController extends Controller
 
 
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/master

@@ -17,6 +17,7 @@ Route::get('welcome', array('as' => 'welcome', function () {
 
 Route::get('/', array('as' => 'dashboard', function () {
 
+<<<<<<< HEAD
     if (Auth::check()){
             return view('dashboard');
     }
@@ -24,6 +25,19 @@ Route::get('/', array('as' => 'dashboard', function () {
     else
         return redirect('auth/login');
 
+}));
+Route::get('/home', array('as' => 'dashboard', function () {
+    if (Auth::check())
+        return view('dashboard');
+    else
+        return redirect('auth/login');
+=======
+    if (Auth::check())
+        return view('dashboard');
+    else
+        return redirect('auth/login');
+
+>>>>>>> origin/master
 }));
 Route::get('/home', array('as' => 'dashboard', function () {
     if (Auth::check())
@@ -72,6 +86,49 @@ Route::post('select_empresa/{id}', ['as' => 'select_empresa', 'uses' => 'Empresa
 Route::get('seleccionar_empresa/{id}', ['as' => 'seleccionar_empresa', 'uses' => 'EmpresaController@seleccionar']);
 
 
+<<<<<<< HEAD
+//
+//Route::get('/', array('as' => 'dashboard','uses'=> 'EmpresaController@index'));
+//Route::get('/home', array('as' => 'dashboard','uses'=> 'EmpresaController@index'));
+
+Route::get('auth/register', 'Auth\AuthController@getRegister');
+Route::post('auth/register', 'Auth\AuthController@postRegister');
+
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
+
+
+//Route::get('users', array('as' => 'index',function () {
+//     return view('users/index');
+//}));
+
+Route::get('users', ['as' => 'users', 'uses' => 'UsuarioController@index']);
+Route::get('buscar_usuario', ['as' => 'buscar_usuario', 'uses' => 'UsuarioController@buscar']);
+Route::get('create', ['as' => 'create', 'uses' => 'UsuarioController@create']);
+Route::post('store', ['as' => 'store', 'uses' => 'UsuarioController@store']);
+
+//Route::get('reporting', ['uses' => 'ReportController@index', 'as' => 'Report']);
+Route::get('reporting', ['uses' => 'ReportController@post']);
+
+Route::get('informe_libro_diario', ['as'=>'informe_libro_diario','uses' => 'ReportController@libro_diario']);
+Route::post('generar_libro_diario', ['uses' => 'ReportController@generar_diario']);
+
+
+
+
+
+Route::get('list_empresas', ['as' => 'empresas', 'uses' => 'EmpresaController@index']);
+Route::get('empresa', ['as' => 'empresa', 'uses' => 'EmpresaController@create']);
+Route::post('store_empresa', ['as' => 'store_empresa', 'uses' => 'EmpresaController@store']);
+
+Route::post('select_empresa/{id}', ['as' => 'select_empresa', 'uses' => 'EmpresaController@select_empresa']);
+
+Route::get('seleccionar_empresa/{id}', ['as' => 'seleccionar_empresa', 'uses' => 'EmpresaController@seleccionar']);
+
+
+=======
+>>>>>>> origin/master
 
 //Route::get('auth/confirm/email/{email}/confirm_token/{confirm_token}', 'Auth\AuthController@confirmRegister');
 
@@ -114,7 +171,11 @@ Route::get('activos_form', ['as' => 'asset_form', 'uses' => 'ActivosController@c
 Route::put('update_activo/{id}', ['as' => 'update_activo', 'uses' => 'ActivosController@updateActivo']);
 Route::get('edit_activo/{id}', ['as' => 'edit_activo', 'uses' => 'ActivosController@editActivo']);
 Route::put('update_grupo_activo/{id}', ['as' => 'update_grupo_activo', 'uses' => 'ActivosController@updateGrupoActivo']);
+<<<<<<< HEAD
 Route::get('edit_grupo_activo/{id}', ['as' => 'edit_grupo_activo', 'uses' => 'ActivosController@editGrupoActivo']);
+=======
+Route::get('edit_grupo_activo/{id}', ['as' => 'edit_grupo_activo', 'uses' => 'ActivosController@editGrupoActivos']);
+>>>>>>> origin/master
 Route::post('save_activos_form', ['as' => 'save_activos_form', 'uses' => 'ActivosController@store_activos']);
 Route::get('asset_group_form', ['as' => 'asset_group_form', 'uses' => 'ActivosController@create_grupo_activos']);
 Route::post('save_asset_group_form', ['as' => 'save_asset_group_form', 'uses' => 'ActivosController@store_grupo_activos']);
@@ -154,9 +215,15 @@ Route::post('update_venta', ['as' => 'update_venta', 'uses' => 'VentasController
 Route::get('compras', ['as' => 'purchase_nav', 'uses' => 'ComprasController@index']);
 
 Route::get('compras_form', ['as' => 'purchase_form', 'uses' => 'ComprasController@create']);
+<<<<<<< HEAD
 
 Route::post('save_compras', ['as' => 'save_compras', 'uses' => 'ComprasController@RealizarCompra']);
 
+=======
+
+Route::post('save_compras', ['as' => 'save_compras', 'uses' => 'ComprasController@RealizarCompra']);
+
+>>>>>>> origin/master
 Route::get('edit_compra/{id}', ['as' => 'edit_compra', 'uses' => 'ComprasController@edit']);
 
 Route::get('delete_compras/{id}', ['as' => 'edit_compra', 'uses' => 'ComprasController@delete']);
@@ -195,14 +262,23 @@ Route::post('save_credito_compras', ['as' => 'save_credito_compras', 'uses' => '
 
 Route::get('creditnote_form_ventas', ['as' => 'creditnote_form', 'uses' => 'Notas_creditoController@createVentas']);
 
+<<<<<<< HEAD
 Route::post('save_credito_ventas', ['as' => 'save_credito_ventas', 'uses' => 'Notas_creditoController@RealizarNotaCreditoVenta']);
+=======
+Route::post('save_credito_ventas', ['as' => 'save_credito_compras', 'uses' => 'Notas_creditoController@RealizarNotaCreditoVenta']);
+>>>>>>> origin/master
 
 Route::get('edit_credit/{id}', ['as' => 'edit_credit', 'uses' => 'Notas_creditoController@edit']);
 
 Route::get('delete_credit/{id}', ['as' => 'delete_credit', 'uses' => 'Notas_creditoController@destroy']);
 
+<<<<<<< HEAD
 Route::post('update_credit_ventas', ['as' => 'update_credit', 'uses' => 'Notas_creditoController@RealizarNotaCreditoUpdateVenta']);
 Route::post('update_credit_compras', ['as' => 'update_credit', 'uses' => 'Notas_creditoController@RealizarNotaCreditoUpdateCompra']);
+=======
+Route::post('update_credit', ['as' => 'update_credit', 'uses' => 'Notas_creditoController@RealizarNotaCreditoUpdate']);
+
+>>>>>>> origin/master
 //Route::get('plan_cuenta', array('as' => 'plancuenta',function () {
 //    return view('contabilidad/plan_cuenta');
 //}));
@@ -213,7 +289,11 @@ Route::get('plan_cuenta', ['as' => 'plancuenta', 'uses' => 'CuentaController@ind
 Route::post('save_plan_cuenta', ['as' => 'save_plancuenta', 'uses' => 'CuentaController@store']);
 
 Route::post('edit_cuenta', ['as' => 'edit_cuenta', 'uses' => 'CuentaController@edit']);
+<<<<<<< HEAD
 Route::put('update_plan_cuenta/{id}', ['as' => 'update_plan_cuenta', 'uses' => 'CuentaController@update']);
+=======
+Route::post('update_plan_cuenta', ['as' => 'update_plan_cuenta', 'uses' => 'CuentaController@update']);
+>>>>>>> origin/master
 Route::post('delete_cuenta', ['as' => 'delete_cuenta', 'uses' => 'CuentaController@destroy']);
 
 //Route::get('cobros', array('as' => 'cobros',function () {
@@ -240,6 +320,7 @@ Route::post('buscar_cliente', ['as' => 'buscar_cliente', 'uses' => 'CobrosContro
 
 
 Route::get('pagos', ['as' => 'pagos', 'uses' => 'PagosController@index']);
+<<<<<<< HEAD
 
 Route::get('form_pagos', ['as' => 'form_pagos', 'uses' => 'PagosController@create']);
 
@@ -249,6 +330,17 @@ Route::post('crear_pago', ['as' => 'crear_pago', 'uses' => 'PagosController@stor
 
 Route::get('edit_pagos/{id}', ['as' => 'edit_pagos', 'uses' => 'PagosController@edit']);
 
+=======
+
+Route::get('form_pagos', ['as' => 'form_pagos', 'uses' => 'PagosController@create']);
+
+Route::post('save_pagos', ['as' => 'save_pagos', 'uses' => 'PagosController@store']);
+
+Route::post('crear_pago', ['as' => 'crear_pago', 'uses' => 'PagosController@store_pago']);
+
+Route::get('edit_pagos/{id}', ['as' => 'edit_pagos', 'uses' => 'PagosController@edit']);
+
+>>>>>>> origin/master
 Route::get('delete_pagos/{id}', ['as' => 'delete_pagos', 'uses' => 'PagosController@delete']);
 
 Route::post('update_pagos', ['as' => 'update_pagos', 'uses' => 'PagosController@update']);
@@ -384,7 +476,10 @@ Route::get('rango_form', ['as' => 'rango_form', 'uses' => 'RangoController@creat
 Route::get('edit_rango_form/{id}', ['as' => 'edit_rango_form', 'uses' => 'RangoController@edit']);
 Route::post('save_rango', ['as' => 'save_rango', 'uses' => 'RangoController@store']);
 Route::put('update_rango/{id}', ['as' => 'update_rango', 'uses' => 'RangoController@update']);
+<<<<<<< HEAD
 Route::get('delete_rango/{id}', ['as' => 'delete_rango', 'uses' => 'RangoController@destroy']);
+=======
+>>>>>>> origin/master
 
 Route::get('list_accounts', ['as' => 'list_accounts', 'uses' => 'AccountsController@index']);
 Route::get('account_form', ['as' => 'account_form', 'uses' => 'AccountsController@create']);
@@ -473,6 +568,7 @@ Route::get('obtener_timbrado/{codigo}/{fecha}',function ($codigo,$fecha) {
 
 
 
+<<<<<<< HEAD
 Route::get('cargar_fecha_vencimiento/{codigo}',function ($codigo) {
 
     $fecha= \App\Compras_Ventas::get_fecha_vencimiento($codigo)->get();
@@ -492,6 +588,8 @@ Route::get('crear_session_sucursal/{id}', function($id){
     \Session::put('codigo_sucursal',$sucursal->code);
 });
 
+=======
+>>>>>>> origin/master
 
 Route::get('cargar_campos/{codigo}/{tipo_retencion}', ['as' => 'cargar_campos', 'uses' => 'RetencionController@cargar_campos']);
 Route::get('cargar_montos/{factura}', ['as' => 'cargar_montos', 'uses' => 'RetencionController@cargar_montos']);

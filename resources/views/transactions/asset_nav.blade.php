@@ -38,7 +38,11 @@
                     <td>{{$item->quantity}}</td>
 
                     <td>{{$item->purchase_date}}</td>
+<<<<<<< HEAD
                     <td><a href="{{url('edit_grupo_activo',$item->id_grupo)}}">{{$item->nombre_grupo}}</a></td>
+=======
+                    <td><a href="{{url('edit_activo',$item->id_grupo)}}">{{$item->nombre_grupo}}</a></td>
+>>>>>>> origin/master
             <td>{{$item->purchase_value}}</td>
                 </td>
 

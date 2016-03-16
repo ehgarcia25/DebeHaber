@@ -33,7 +33,11 @@ class TerminalController extends Controller
      */
     public function create()
     {
+<<<<<<< HEAD
         $sucursal= Sucursal::Sucursales(\Session::get('id_empresa'))->lists('code','id');
+=======
+        $sucursal= Sucursal::Sucursales(\Session::get('id_empresa'))->lists('name','id');
+>>>>>>> origin/master
         return view('admin/terminal_form')->with('sucursal',$sucursal);
     }
 
@@ -78,7 +82,11 @@ class TerminalController extends Controller
     public function edit($id)
     {
         $terminal= Terminal::findOrFail($id);
+<<<<<<< HEAD
         $sucursal= Sucursal::Sucursales(\Session::get('id_empresa'))->lists('code','id');
+=======
+        $sucursal= Sucursal::Sucursales(\Session::get('id_empresa'))->lists('name','id');
+>>>>>>> origin/master
         return view('admin/edit_terminal_form')
             ->with('sucursal',$sucursal)
             ->with('terminal',$terminal);

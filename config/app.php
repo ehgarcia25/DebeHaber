@@ -139,7 +139,10 @@ return [
         Laracasts\Flash\FlashServiceProvider::class,
         Mitul\Generator\GeneratorServiceProvider::class,
         Appzcoder\CrudGenerator\CrudGeneratorServiceProvider::class,
+<<<<<<< HEAD
 		Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+=======
+>>>>>>> origin/master
         /*
          * Application Service Providers...
          */

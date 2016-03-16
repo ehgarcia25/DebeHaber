@@ -44,11 +44,15 @@ abstract class Controller extends BaseController
         return $empresa[0]->id;
     }
 
+<<<<<<< HEAD
  public function covertir_guaranies($id_moneda,$valor)
 {
       $taza=Divisas_rate::taza($id_moneda)->get();
       return $taza[0]->buy_rate*$valor;
 }
+=======
+
+>>>>>>> origin/master
 
 
 

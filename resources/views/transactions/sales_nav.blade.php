@@ -7,7 +7,11 @@
 @section('breadcrumbs', Breadcrumbs::render('sales_nav'))
 
 @section('content')
+<<<<<<< HEAD
 <a class="btn btn-primary btn-lg " data-toggle="modal" data-target="#myModal" >Crear Venta</a>
+=======
+<a class="btn btn-primary btn-lg " href="{{url('ventas_form')}}">Crear Venta</a>
+>>>>>>> origin/master
 <div class="panel-heading clearfix">
 
 </div>
@@ -65,6 +69,7 @@
             </tbody>
            </table>
        </div>
+<<<<<<< HEAD
 
 <div class="col-md-4">
 
@@ -91,4 +96,6 @@
         </div>
     </div>
 </div>
+=======
+>>>>>>> origin/master
 @endsection

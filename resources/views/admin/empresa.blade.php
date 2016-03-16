@@ -23,8 +23,14 @@
     @endif
 </div>
 
+<<<<<<< HEAD
 
 <form class="form-horizontal" method="POST" action="{{url('store_empresa')}}" data-toggle="validator" role="form">
+=======
+<div ng-app="formApp">
+    <div ng-controller="MainCtrl">
+<form class="form-horizontal" method="POST" action="{{url('store_empresa')}}"  name="Form">
+>>>>>>> origin/master
     {!! csrf_field() !!}
     
   
@@ -82,7 +88,12 @@
 
     
 </form>
+<<<<<<< HEAD
 
+=======
+</div>
+    </div>
+>>>>>>> origin/master
 @endsection
 
 @section('scripts')

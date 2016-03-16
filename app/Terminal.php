@@ -15,7 +15,11 @@ class Terminal extends Model
 
     public function scopeTerminal($query,$id_sucrusal)
     {
+<<<<<<< HEAD
         return $query->where('id_branch',$id_sucrusal)->lists('code','id');
+=======
+        return $query->where('id_branch',$id_sucrusal)->lists('name','id');
+>>>>>>> origin/master
     }
 
     public function scopeTerminalCode($query,$id)

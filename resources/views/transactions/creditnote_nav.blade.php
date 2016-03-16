@@ -9,8 +9,13 @@
 
 @section('content')
 
+<<<<<<< HEAD
 <a class="btn btn-primary btn-lg " data-toggle="modal" data-target="#myModal" >Crear Nota de Crédito Ventas</a>
 <a class="btn btn-primary btn-lg " data-toggle="modal" data-target="#myModal1" >Crear Nota de Crédito Compras</a>
+=======
+<a class="btn btn-primary btn-lg " href="{{url('creditnote_form_ventas')}}">Crear Nota de Crédito Ventas</a>
+<a class="btn btn-primary btn-lg " href="{{url('creditnote_form_compras')}}">Crear Nota de Crédito Compras</a>
+>>>>>>> origin/master
 
 <div class="panel-heading clearfix">
 
@@ -45,7 +50,11 @@
 
                     <td>{{$item->return_date}}</td>
                     <td>{{$item->return_total}}</td>
+<<<<<<< HEAD
                     <td>{{App\Divisas::miMoneda($item->currency_rate_id)[0]->name}}</td>
+=======
+                    <td>{{App\Divisas::Moneda($item->currency_rate_id)[0]->name}}</td>
+>>>>>>> origin/master
                     <td>
                         @if($item->is_accounted_customer)
                             Aprobada
@@ -62,6 +71,7 @@
             </tbody>
            </table>
        </div>
+<<<<<<< HEAD
 <div class="col-md-4">
 
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -113,4 +123,7 @@
         </div>
     </div>
 </div>
+=======
+
+>>>>>>> origin/master
 @endsection

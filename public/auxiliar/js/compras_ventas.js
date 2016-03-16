@@ -108,8 +108,35 @@ $('#items').change(function () {
 
 })
 
+<<<<<<< HEAD
 
 
+=======
+$('#moneda').change(function (e) {
+
+
+    var id_name= $('#moneda').val().split(".")
+    var fecha = $('#fecha').val()
+    $('#moneda11').val(id_name[0])
+    $('#moneda1').val(id_name[1])
+    var cadena = $('#moneda').val().split('.')
+    var id = cadena[0]
+    $('#id_divisa').val(id)
+    e.preventDefault(e);
+    var form = $('#form_buscar_taza_cambio')
+    var url = form.attr('action').replace('{id}',id).replace('{fecha}',fecha);
+
+    var datos = form.serialize()
+
+
+    $.get(url, datos, function (data) {
+        $('#taza_cambio').text(data.taza)
+    })
+
+
+})
+
+>>>>>>> origin/master
 
 $(document).ready(function () {
     var total = 0
@@ -184,6 +211,7 @@ $(document).ready(function () {
 })
 
 
+<<<<<<< HEAD
 //$('#generar_pago').click(function () {
 //
 //    $('#plazo_contado1').val($('#total').val())
@@ -227,15 +255,45 @@ function llenar_tabla_haber(data){
     })
 
 }
+=======
+$('#generar_pago').click(function () {
+
+    $('#plazo_contado1').val($('#total').val())
+    $('#id_proveedor').val($('#items').val())
+
+
+    var form = $('#buscar_pagos')
+    var url = form.attr('action')
+    var datos = form.serialize()
+
+    $.post(url, datos, function (data) {
+        if (data.success == true)
+            $('#dinero_total').html(data.html)
+        else if (data.success == false)
+            $('#dinero_total').text(data.html)
+        else {
+            $('#crear_pago').html(data.html)
+            $('#monto').html(data.monto)
+        }
+    })
+
+
+})
+>>>>>>> origin/master
 
 $(function () {
 
     $('#guardar_compra').click(function (e) {
+<<<<<<< HEAD
         $("#cuerpo").html("")
+=======
+
+>>>>>>> origin/master
         $('#is_guardar_compra').val(1)
 
         e.preventDefault(e);
         var form = $('#form_save_compras');
+<<<<<<< HEAD
         var url = form.attr('action');
         var data1 = form.serialize();
 
@@ -245,13 +303,37 @@ $(function () {
                 llenar_tabla_debe(data.debe)
                 llenar_tabla_haber(data.haber)
             }
+=======
+
+        var url = form.attr('action');
+
+
+        var data1 = form.serialize();
+
+
+        $.post(url, data1, function (data) {
+
+
+            $('#nombre_caja').text(data.cuenta_dinero_nombre)
+            $('#valor_caja').text(data.cuenta_dinero)
+            $('#nombre_costo').text(data.cuenta_mercancia)
+            $('#valor_costo').text(data.cuenta_mercancia_dinero)
+            $('#nombre_iva').text(data.cuenta_iva)
+            $('#iva_total').text(data.cuenta_iva_dinero)
+>>>>>>> origin/master
 
             if (data.mensaje != undefined) {
                 $('#result').html("Operación realizada con éxito.")
                 $('#result').css('display', 'block')
                 $('#result').attr('class', 'alert alert-success')
 
+<<<<<<< HEAD
                 cambiar_rango()
+=======
+               // $('#form_save_compras').trigger("reset");
+
+                $('#numero_factura').val(data.numero_factura)
+>>>>>>> origin/master
             }
 
 
@@ -263,11 +345,16 @@ $(function () {
 $(function () {
 
     $('#guardar_compra_actualizar').click(function (e) {
+<<<<<<< HEAD
         $("#cuerpo").html("")
+=======
+
+>>>>>>> origin/master
         $('#is_guardar_compra').val(1)
 
         e.preventDefault(e);
         var form = $('#form_save_compras');
+<<<<<<< HEAD
         var url = form.attr('action');
         var data1 = form.serialize();
 
@@ -277,6 +364,24 @@ $(function () {
                 llenar_tabla_debe(data.debe)
                 llenar_tabla_haber(data.haber)
             }
+=======
+
+        var url = form.attr('action');
+
+
+        var data1 = form.serialize();
+
+
+        $.post(url, data1, function (data) {
+
+            $('#nombre_caja').text(data.cuenta_dinero_nombre)
+            $('#valor_caja').text(data.cuenta_dinero)
+            $('#nombre_costo').text(data.cuenta_mercancia)
+            $('#valor_costo').text(data.cuenta_mercancia_dinero)
+            $('#nombre_iva').text(data.cuenta_iva)
+            $('#iva_total').text(data.cuenta_iva_dinero)
+
+>>>>>>> origin/master
             if (data.mensaje != undefined) {
                 $('#result').html("Operación realizada con éxito.")
                 $('#result').css('display', 'block')
@@ -288,6 +393,7 @@ $(function () {
     });
 });
 
+<<<<<<< HEAD
 //
 //$(function () {
 //    $('#actualizar_compra').click(function (e) {
@@ -329,6 +435,65 @@ $(function () {
 //
 //})
 
+=======
+
+$(function () {
+    $('#actualizar_compra').click(function (e) {
+        e.preventDefault(e);
+        var form = $('#form_actualizar_compra')
+        var url = form.attr('action')
+        var datos = form.serialize()
+
+        $.post(url, datos, function (data) {
+
+            if (data.success != undefined) {
+                $('#result').html("Operación realizada con éxito.")
+                $('#result').css('display', 'block')
+                $('#result').attr('class', 'alert alert-success')
+            }
+        })
+    })
+
+
+})
+
+$(function () {
+    $('#actualizar_venta').click(function (e) {
+        e.preventDefault(e);
+        var form = $('#form_actualizar_venta')
+        var url = form.attr('action')
+        var datos = form.serialize()
+
+        $.post(url, datos, function (data) {
+
+            if (data.success != undefined) {
+                $('#result').html("Operación realizada con éxito.")
+                $('#result').css('display', 'block')
+                $('#result').attr('class', 'alert alert-success')
+            }
+        })
+    })
+
+
+})
+var app = angular.module('formApp', []);
+
+app.controller('MainCtrl', function ($scope) {
+    $scope.formData = {};
+
+    $scope.submitForm = function (formData) {
+
+    };
+});
+
+app.controller('MainCtrll', function ($scope) {
+    $scope.formData = {};
+
+    $scope.submitForm = function (formData) {
+
+    };
+});
+>>>>>>> origin/master
 
 
 
@@ -397,7 +562,11 @@ $(function () {
 
 $(function () {
     $('#aprobar_compra_actualizar').click(function (e) {
+<<<<<<< HEAD
         $("#cuerpo").html("")
+=======
+
+>>>>>>> origin/master
         $('#is_guardar_compra').val(0)
         e.preventDefault(e);
         var form = $('#form_save_compras')
@@ -406,9 +575,19 @@ $(function () {
         var datos = form.serialize()
 
         $.post(url, datos, function (data) {
+<<<<<<< HEAD
             llenar_tabla_debe(data.debe)
             llenar_tabla_haber(data.haber)
 
+=======
+
+           $('#nombre_caja').text(data.cuenta_dinero_nombre)
+            $('#valor_caja').text(data.cuenta_dinero)
+            $('#nombre_costo').text(data.cuenta_mercancia)
+            $('#valor_costo').text(data.cuenta_mercancia_dinero)
+            $('#nombre_iva').text(data.cuenta_iva)
+            $('#iva_total').text(data.cuenta_iva_dinero)
+>>>>>>> origin/master
 
             if (data.mensaje != undefined) {
                 $('#result').html("Operación realizada con éxito.")
@@ -431,7 +610,11 @@ $(function () {
 
 $(function () {
     $('#aprobar_compra_guardar').click(function (e) {
+<<<<<<< HEAD
         $("#cuerpo").html("")
+=======
+
+>>>>>>> origin/master
         $('#is_guardar_compra').val(0)
         e.preventDefault(e);
         var form = $('#form_save_compras')
@@ -440,8 +623,18 @@ $(function () {
         var datos = form.serialize()
 
         $.post(url, datos, function (data) {
+<<<<<<< HEAD
             llenar_tabla_debe(data.debe)
             llenar_tabla_haber(data.haber)
+=======
+
+            $('#nombre_caja').text(data.cuenta_dinero_nombre)
+            $('#valor_caja').text(data.cuenta_dinero)
+            $('#nombre_costo').text(data.cuenta_mercancia)
+            $('#valor_costo').text(data.cuenta_mercancia_dinero)
+            $('#nombre_iva').text(data.cuenta_iva)
+            $('#iva_total').text(data.cuenta_iva_dinero)
+>>>>>>> origin/master
 
             if (data.mensaje != undefined) {
                 $('#result').html("Operación realizada con éxito.")
@@ -451,7 +644,12 @@ $(function () {
                 $('#botones').css('display','none')
                 $('#boton_pago').css('display','none')
 
+<<<<<<< HEAD
                 cambiar_rango()
+=======
+                $('#form_save_compras').trigger("reset");
+                $('#numero_factura').val(data.numero_factura)
+>>>>>>> origin/master
 
             }
 
@@ -481,10 +679,23 @@ window.onload=function(){
 
         $.post(url, data1, function (data) {
 
+<<<<<<< HEAD
             if(data!=""){
                 llenar_tabla_debe(data.debe)
                 llenar_tabla_haber(data.haber)
             }
+=======
+            $('#nombre_caja').text(data.cuenta_dinero_nombre)
+            $('#valor_caja').text(data.cuenta_dinero)
+            $('#nombre_costo').text(data.cuenta_mercancia)
+            $('#valor_costo').text(data.cuenta_mercancia_dinero)
+            $('#nombre_iva').text(data.cuenta_iva)
+            $('#iva_total').text(data.cuenta_iva_dinero)
+
+
+
+
+>>>>>>> origin/master
         });
     }
 
@@ -494,6 +705,10 @@ window.onload=function(){
 
 $('#mostrar_modal_timbrado').click(function(){
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
     if($('#items').val()==""){
         $('#myModal').attr('id','aa')
         $('#result').html("Seleccione Proveedor")
@@ -546,8 +761,11 @@ $(document).ready(function(){
    timbrado()
 })
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> origin/master
 function timbrado(){
     var options = {
 
@@ -564,17 +782,27 @@ function timbrado(){
             match: {
                 enabled: true
             },
+<<<<<<< HEAD
             /*onChooseEvent: function() {
+=======
+            onChooseEvent: function() {
+>>>>>>> origin/master
                 var array_aux= $("#example-ajax-post").val().split(" ")
 
                 var codigo= array_aux[0]
                 $('#company_id').val(codigo)
 
+<<<<<<< HEAD
 
                 if($('#fecha').val()!=""){
 
                     $('#result').css('display', 'none')
                     var url= "cargar_timbrado/"+codigo+"/"+$('#fecha_aux').val()
+=======
+                if($('#fecha').val()!=""){
+                    $('#result').css('display', 'none')
+                    var url= "cargar_timbrado/"+codigo+"/"+$('#fecha').val()
+>>>>>>> origin/master
 
 
                     $.get(url,function(data){
@@ -608,7 +836,11 @@ function timbrado(){
                 }
 
 
+<<<<<<< HEAD
             },*/
+=======
+            },
+>>>>>>> origin/master
             maxNumberOfElements: 8
 
 
@@ -648,15 +880,24 @@ function timbrado(){
     $("#example-ajax-post").easyAutocomplete(options);
 }
 
+<<<<<<< HEAD
 function cambiar_sucursal(){
 
     var id_sucursal=$('#sucursal').val()
 
     var url= "../cargar_rangos/"+id_sucursal+"/"+1
+=======
+
+$('#sucursal').change(function (){
+    //
+    var id_sucursal=$('#sucursal').val()
+    var url= "cargar_rangos/"+id_sucursal+"/"+1
+>>>>>>> origin/master
 
     $.get(url,function(data){
 
         if(data!=""){
+<<<<<<< HEAD
 
             console.log(JSON.stringify(data))
             $.each(data, function(k,v){
@@ -665,10 +906,20 @@ function cambiar_sucursal(){
                 //$('#select2-rango-container').text(v)
             })
 
+=======
+            //$('#rango').html("")
+            console.log(JSON.stringify(data))
+
+            $.each(data, function(k,v){
+
+                $("#rango").append("<option value=\""+k+"\">"+v+"</option>");
+            })
+>>>>>>> origin/master
         }
         else{
 
             $('#rango').html("")
+<<<<<<< HEAD
             $('#select2-rango-container').html("")
 
         }
@@ -717,6 +968,30 @@ $(document).ready(function () {
 
 $('#rango').change(function (){
      cambiar_rango()
+=======
+
+        }
+    })
+})
+
+$('#rango').change(function (){
+    //
+    var id=$('#rango').val()
+    var url= "cargar_valor_actual/"+id
+
+    $.get(url,function(data){
+
+        if(data!=""){
+           $('#numero_factura').val(data.numero_factura)
+            $('#timbrado1').val(data.timbrado_rango)
+        }
+        else{
+
+            $('#numero_factura').val(null)
+
+        }
+    })
+>>>>>>> origin/master
 })
 
 $(document).ready(function(){
@@ -732,7 +1007,11 @@ function cargartimbrado(){
             if($("#example-ajax-post").val()!="" && $('#fecha').val()!=""){
                 var array_aux= $("#example-ajax-post").val().split(" ")
                 var codigo= array_aux[0]
+<<<<<<< HEAD
                 return "/obtener_timbrado/"+codigo+"/"+$('#fecha_aux').val();
+=======
+                return "/obtener_timbrado/"+codigo+"/"+$('#fecha').val();
+>>>>>>> origin/master
             }
 
         },
@@ -745,6 +1024,7 @@ function cargartimbrado(){
             match: {
                 enabled: true
             },
+<<<<<<< HEAD
             onChooseEvent: function() {
                 var timbrado= $("#timbrado0").val()
 
@@ -764,6 +1044,8 @@ function cargartimbrado(){
 
 
             },
+=======
+>>>>>>> origin/master
 
             maxNumberOfElements: 4
 
@@ -803,3 +1085,9 @@ function cargartimbrado(){
 
     $("#timbrado0").easyAutocomplete(options);
 }
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> origin/master

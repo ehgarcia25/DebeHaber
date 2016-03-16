@@ -3,12 +3,18 @@
     <div class='form-group'>
         <label for="name" class="col-sm-3 control-label">Nombre:</label>
         <div class="col-sm-7">
+<<<<<<< HEAD
             <input type="text" name="name" class="form-control" autocomplete="off" placeholder="" required
                   />
+=======
+            <input type="text" name="name" class="form-control" autocomplete="off" placeholder="" ng-model="formData.name" required
+                   ng-class="{ error: Form.name.$error.required && !Form.$pristine}" />
+>>>>>>> origin/master
             <div class="text-danger">{{$errors->first('name')}}</div>
         </div>
     </div>
 
+<<<<<<< HEAD
     
 
     <div class="form-group">
@@ -16,6 +22,13 @@
         <div class="col-sm-7">
             <input type="text" class="form-control" name="alias" value="" autocomplete="off" placeholder="" required
                   >
+=======
+    <div class="form-group">
+        <label for="alias" class="col-sm-3 control-label">Alias:</label>
+        <div class="col-sm-7">
+            <input type="text" class="form-control" name="alias" value="" autocomplete="off" placeholder="" ng-model="formData.alias" required
+                   ng-class="{ error: Form.alias.$error.required && !Form.$pristine}">
+>>>>>>> origin/master
             <div class="text-danger">{{$errors->first('alias')}}</div>
         </div>
     </div>
@@ -23,12 +36,28 @@
     <div class='form-group'>
         <label for="ruc" class="col-sm-3 control-label">RUC:</label>
         <div class="col-sm-7">
+<<<<<<< HEAD
             <input type="text" name="ruc" class="form-control" value="" autocomplete="off" placeholder=""  required
                   />
+=======
+            <input type="text" name="ruc" class="form-control" value="" autocomplete="off" placeholder="" ng-model="formData.ruc" required
+                   ng-class="{ error: Form.ruc.$error.required && !Form.$pristine}"/>
+>>>>>>> origin/master
             <!--<div class="text-danger">{{$errors->first('name')}}</div>-->
         </div>
     </div>
 
+<<<<<<< HEAD
+=======
+    <div class='form-group'>
+        <label for="razon_social" class="col-sm-3 control-label">Razón Social:</label>
+        <div class="col-sm-7">
+            <input type="text" name="razon_social" class="form-control" value="" autocomplete="off" placeholder="" ng-model="formData.razon_social" required
+                   ng-class="{ error: Form.razon_social.$error.required && !Form.$pristine}"/>
+            <div class="text-danger">{{$errors->first('name')}}</div>
+        </div>
+    </div>
+>>>>>>> origin/master
 
     {{----}}
     {{--<div class="form-group">--}}
@@ -49,8 +78,13 @@
     <div class="form-group">
         <label for="telefono" class="col-sm-3 control-label">Teléfono:</label>
         <div class="col-sm-7">
+<<<<<<< HEAD
             <input type="tel" class="form-control" name="telefono" value="" autocomplete="off" placeholder=""  required
                  >
+=======
+            <input type="tel" class="form-control" name="telefono" value="" autocomplete="off" placeholder="" ng-model="formData.telefono" required
+                   ng-class="{ error: Form.telefono.$error.required && !Form.$pristine}">
+>>>>>>> origin/master
             <div class="text-danger">{{$errors->first('alias')}}</div>
         </div>
     </div>
@@ -58,14 +92,22 @@
         <label for="email" class="col-sm-3 control-label">Correo Electrónico </label>
         <div class="col-sm-7">
 
+<<<<<<< HEAD
             {!!  Form::email('email',null,['class'=> 'form-control','id'=>'email', 'required','autocomplete'=>"off"]) !!}
+=======
+            {!!  Form::email('email',null,['class'=> 'form-control','id'=>'email', 'required','autocomplete'=>"off",'ng-model'=>'formData.email', 'ng-class'=>'{ error: Form.email.$error.required && !Form.$pristine}']) !!}
+>>>>>>> origin/master
             <div class="text-danger">{{$errors->first('email')}}</div>
         </div>
     </div>
     <div class="form-group">
         <label for="direccion" class="col-sm-3 control-label">Dirección </label>
         <div class="col-sm-7">
+<<<<<<< HEAD
             {!!  Form::textarea('direccion',null,['class'=> 'form-control','id'=>'direccion','rows'=>'5', 'required','autocomplete'=>"off"]) !!}
+=======
+            {!!  Form::textarea('direccion',null,['class'=> 'form-control','id'=>'direccion','rows'=>'5', 'required','autocomplete'=>"off",'ng-model'=>'formData.direccion', 'ng-class'=>'{ error: Form.direccion.$error.required && !Form.$pristine}']) !!}
+>>>>>>> origin/master
         </div>
     </div>
 {{----}}
@@ -141,6 +183,10 @@
     <div class="form-group">
         <label for="email" class="col-sm-3 control-label"></label>
         <div class="col-sm-7">
+<<<<<<< HEAD
             <button type="submit" class="btn btn-success" >Guardar</button>
+=======
+            <button type="submit" class="btn btn-success" ng-click="submitForm(formData)" ng-disabled="!Form.$valid">Guardar</button>
+>>>>>>> origin/master
         </div>
     </div>

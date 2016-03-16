@@ -28,6 +28,7 @@
         @if(Session::has('message'))
             {{Session::get('message')}}
         @endif
+<<<<<<< HEAD
     </div>
 
             {!! Form::open(array('url'=> 'save_retencion', 'method'=> 'post','class'=>'form-horizontal', 'id'=>'save_retencion','data-toggle'=>"validator", 'role'=>"form")) !!}
@@ -90,4 +91,36 @@
 
     <script src="{{url()}}/auxiliar/js/retenciones.js"></script>
 
+=======
+    </div>
+
+    <div ng-app="formApp">
+        <div ng-controller="MainCtrl">
+            {!! Form::open(array('url'=> 'save_retencion', 'method'=> 'post','class'=>'form-horizontal', 'id'=>'save_retencion', 'name'=>'Form')) !!}
+            {!! csrf_field() !!}
+            @include('transactions.partials.fields_witholding')
+            <div class="col-md-4">
+                <div class="form-group"  id="botones">
+                    {{--<input type="hidden" id="dinero" name="dinero" value="">--}}
+                    {{--<input type="hidden" id="calcular_iva" name="calcular_iva" value="">--}}
+                    {!! Form::submit('Guardar',['class'=>'btn btn-success','id'=>'guardar_retencion', 'ng-click'=>'submitForm(formData)', 'ng-disabled'=>'!Form.$valid']) !!}
+
+                </div>
+            </div>
+            {!! Form::close() !!}
+    </div>
+
+        <form method="get" action="{{url()}}/buscar_taza_cambio/{id}" id="form_buscar_taza_cambio">
+            {!! csrf_field() !!}
+            <input type="hidden" value="" id="id_divisa" name="divisas">
+        </form>
+    </div>
+
+@endsection
+
+@section('scripts')
+
+    <script src="{{url()}}/auxiliar/js/retenciones.js"></script>
+
+>>>>>>> origin/master
 @endsection

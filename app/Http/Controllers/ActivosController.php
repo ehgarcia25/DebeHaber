@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+<<<<<<< HEAD
+=======
+use App\Http\Requests;
+>>>>>>> origin/master
 use App\Http\Controllers\Controller;
 use App\Activos_Fijos;
 use App\Grupo_Activos_Fijos;
@@ -36,7 +40,11 @@ class ActivosController extends Controller {
      */
     public function create_activos() {
 
+<<<<<<< HEAD
         $grupo = Grupo_Activos_Fijos::get_grupo_activos()->lists('name','id');
+=======
+        $grupo = Grupo_Activos_Fijos::all()->lists('name','id');
+>>>>>>> origin/master
         $divisas = Divisas::all()->lists('name','id');
 
         return view('transactions/asset_form')
@@ -66,7 +74,11 @@ class ActivosController extends Controller {
         $activos->details = "";
         $activos->quantity = $request->quantity;
         $activos->purchase_value = $request->purchase_value;
+<<<<<<< HEAD
         $activos->purchase_date = date("Y-m-d", strtotime($request->purchase_date));
+=======
+        $activos->purchase_date = $request->purchase_date;
+>>>>>>> origin/master
         $activos->timestamp = $date->getTimestamp();
         $activos->user_id = $request->usuario;
         $activos->series = $request->series;
@@ -80,9 +92,15 @@ class ActivosController extends Controller {
         $date = new DateTime();
         $grupo_activos = new Grupo_Activos_Fijos();
         $grupo_activos->name = $request->name;
+<<<<<<< HEAD
         $grupo_activos->coefficient = $request->coefficient;
         $grupo_activos->lifespan = $request->lifespan;
         $grupo_activos->is_tangible = $request->is_tangible;
+=======
+        $grupo_activos->coefficient = $request->revaluo;
+        $grupo_activos->lifespan = $request->vida_util;
+        $grupo_activos->is_tangible = $request->tipologia;
+>>>>>>> origin/master
         $grupo_activos->timestamp = $date->getTimestamp();
 
         $grupo_activos->user_id = $request->usuario;
@@ -110,8 +128,11 @@ class ActivosController extends Controller {
     public function editActivo($id) {
 
         $activos= Activos_Fijos::findOrFail($id);
+<<<<<<< HEAD
         $activos->purchase_date= date("m-d-Y", strtotime($activos->purchase_date));
 
+=======
+>>>>>>> origin/master
         $grupo = Grupo_Activos_Fijos::all()->lists('name','id');
 
         $divisas = Divisas::all()->lists('name','id');
@@ -148,12 +169,21 @@ class ActivosController extends Controller {
 //            'quantity'=> $request->cantidad, 'purchase_value'=> $request->costo, 'purchase_date'=> $request->fecha, 'timestamp'=>$date->getTimestamp()]);
 
     }
+<<<<<<< HEAD
     public function updateGrupoActivo(Request $request,$id) {
 
         $activo= Grupo_Activos_Fijos::findOrFail($id);
         $activo->fill($request->all());
         $activo->save();
         return redirect()->back();
+=======
+    public function updateGrupoActivo(Request $request) {
+        $date = new DateTime();
+        $grupo= new Grupo_Activos_Fijos();
+
+        $grupo->where('id',$request->migrupo)->update(['name'=> $request->name, 'coefficient'=> $request->revaluo, 'lifespan'=> $request->vida_util,
+            'is_tangible'=> $request->tipologia, 'timestamp'=> $date->getTimestamp()]);
+>>>>>>> origin/master
     }
 
     /**

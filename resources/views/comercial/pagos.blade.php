@@ -63,6 +63,7 @@
 
 {{--</form>--}}
 
+<<<<<<< HEAD
 <div class="col-md-4">
             <!-- Button trigger modal -->
             {{--<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" id="boton_pago" style="display: block;"> Generar Pago</button>--}}
@@ -99,6 +100,8 @@
             </div>
         </div>
 
+=======
+>>>>>>> origin/master
 @endsection
 
 @section('scripts')

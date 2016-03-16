@@ -7,7 +7,11 @@
 @section('breadcrumbs', Breadcrumbs::render('witholding_nav'))
 
 @section('content')
+<<<<<<< HEAD
 <a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" >Crear Retención</a>
+=======
+<a class="btn btn-primary btn-lg" href="retencion_form">Crear Retención</a>
+>>>>>>> origin/master
 
 <div class="dataTables_length table-responsive" id="example2_length">
 
@@ -34,13 +38,18 @@
                            <td>{{$item->witholding_date}}</td>
                         <td>{{$item->tipo}}</td>
                          <td>{{$item->witholding_total}}</td>
+<<<<<<< HEAD
                            <td>{{App\Divisas::miMoneda($item->currency_rate_id)[0]->name}}</td>
+=======
+                           <td>{{App\Divisas::Moneda($item->currency_rate_id)[0]->name}}</td>
+>>>>>>> origin/master
                            <td> <a href="{{url('delete_retencion', $item->id)}}"> <i class="glyphicon glyphicon-trash"></i></a></td>
                        </tr>
                 @endforeach
             </tbody>
            </table>
        </div>
+<<<<<<< HEAD
 
 <div class="col-md-4">
 
@@ -67,4 +76,6 @@
         </div>
     </div>
 </div>
+=======
+>>>>>>> origin/master
 @endsection

@@ -35,5 +35,8 @@ class Relaciones extends Model
             });
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 }

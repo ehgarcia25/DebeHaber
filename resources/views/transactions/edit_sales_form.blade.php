@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 @extends('layouts.master')
 
 @section('title', 'Actualizar Ventas | DebeHaber')
@@ -24,9 +27,16 @@
             {{Session::get('message')}}
         @endif
     </div>
+<<<<<<< HEAD
 
 
                 {!! Form::model($compra,array('url'=> 'update_venta', 'method'=> 'post','class'=>'form-horizontal','id'=>'form_save_compras')) !!}
+=======
+    <div ng-app="formApp">
+        <div ng-controller="MainCtrl">
+            <form class="form-horizontal" action="{{url()}}/update_venta" method="post" id="form_save_compras" name="Form">
+
+>>>>>>> origin/master
                 {!! csrf_field() !!}
 
                 <input type="hidden" name="micompania" value="{{Session::get('id_empresa')}}">
@@ -49,9 +59,14 @@
                     <div class="form-group">
                         <label for="fecha" class="col-sm-3 control-label">Fecha</label>
                         <div class="col-sm-7">
+<<<<<<< HEAD
                             {!!  Form::text('fecha',date("m/d/Y", strtotime($compra->invoice_date)),['class'=> 'form-control date-picker', 'id'=>'fecha', 'required','autocomplete'=>'off','data-mask'=>'00/00/0000','maxlength'=>'10']) !!}
 
 
+=======
+                            <input type="text" value="{{$compra->invoice_date}}" name="fecha" id="fecha" class="form-control date-picker" required>
+                            <div class="text-danger" id="error_fecha">{{$errors->first('fecha')}}</div>
+>>>>>>> origin/master
                         </div>
                         <div class="col-sm-2">
 
@@ -73,6 +88,7 @@
                         <label for="sucursal" class="col-sm-3 control-label">Sucursal</label>
                         <div class="col-sm-7">
 
+<<<<<<< HEAD
                             {!!  Form::select('sucursal',$sucursal,$compra->id_branch,['class'=> 'form-control' , 'required','id'=>'sucursal']) !!}
 
                         </div>
@@ -84,11 +100,22 @@
                             <div class="text-danger" id="error_costo">{{$errors->first('centro_costo')}}</div>
                         </div>
                     </div>
+=======
+                            {!!  Form::select('sucursal',$sucursal,$misucursal[0]->name,['class'=> 'form-control' , 'required']) !!}
+
+                        </div>
+                    </div>
+>>>>>>> origin/master
 
                     <div class="form-group">
                         <label for="rango" class="col-sm-3 control-label">Rango</label>
                         <div class="col-sm-7">
+<<<<<<< HEAD
                             {!!  Form::select('rango',$rango,null,['class'=> 'form-control selected','id'=>'rango1','required' ]) !!}
+=======
+
+                            {!!  Form::select('rango',$rango,null,['class'=> 'form-control selected','id'=>'rango','required' ]) !!}
+>>>>>>> origin/master
 
                         </div>
                     </div>
@@ -112,7 +139,13 @@
                     <div class="form-group">
                         <label for="numero_factura" class="col-sm-3 control-label">Número Factura</label>
                         <div class="col-sm-7">
+<<<<<<< HEAD
                             {!!  Form::text('numero_factura',$compra->invoice_number,['class'=> 'form-control','readonly','id'=>'numero_factura']) !!}
+=======
+                            <input type="text" name="numero_factura" class="form-control" value="{{$compra->invoice_number}}"
+                                   required>
+                            <div class="text-danger" id="error_numero">{{$errors->first('numero_factura')}}</div>
+>>>>>>> origin/master
                         </div>
 
                     </div>
@@ -143,13 +176,21 @@
                         <label for="moneda" class="col-sm-3 control-label">Moneda</label>
                         <div class="col-sm-7">
 
+<<<<<<< HEAD
                             {!!  Form::select('moneda',$moneda,$mimoneda,['class'=> 'form-control moneda','id'=>'moneda', 'required']) !!}
+=======
+                            {!!  Form::select('moneda',[],$mimoneda,['class'=> 'form-control','id'=>'moneda', 'required']) !!}
+>>>>>>> origin/master
 
 
                         </div>
                         <div class="col-sm-2">
                             <a href="#!" id="taza_cambio" data-type="text" data-pk="1" data-title="Enter username"
+<<<<<<< HEAD
                                class="editable editable-click" style="display: inline;">{{$mitaza[0]->buy_rate}}</a>
+=======
+                               class="editable editable-click" style="display: inline;">{{$mitaza->buy_rate}}</a>
+>>>>>>> origin/master
                         </div>
                     </div>
                     {{-- */$x=0;/* --}}
@@ -194,7 +235,57 @@
                     <div class="col-sm-3">
                         <!-- Empty Space to push DataGrid  -->
                     </div>
+<<<<<<< HEAD
 
+=======
+                    <div class="col-sm-7 panel-silver">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Cuenta</th>
+                                <th>Debe</th>
+                                <th>Haber</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr id="centro_costos_tabla">
+                                <th scope="row"></th>
+                                <td id="nombre_costo"></td>
+                                <td id="valor_costo"></td>
+                                <td><input type="hidden" id="valor_cuenta_costo" name="valor_coeficiente" value="0"></td>
+
+                                <td>
+                                    <i class="icon-pencil" style="color: silver;"></i>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row"></th>
+                                <td id="nombre_iva"></td>
+                                <td id="iva_total"> <input type="hidden" id="valor_iva_total" name="valor_iva_total" value="0"> </td>
+                                <td></td>
+
+                                <td>
+                                    <i class="icon-pencil" style="color: silver;"></i>
+                                </td>
+                            </tr>
+                            <tr >
+                                <th scope="row"></th>
+                                <td id="nombre_caja"></td>
+
+                                <td id="dinero_total"><input type="hidden" id="valor_total" name="valor_total" value="0"></td>
+                                <td id="valor_caja"></td>
+                                <td>
+                                    <i class="icon-pencil" style="color: silver;"></i>
+                                </td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+>>>>>>> origin/master
                 </div>
                 <div class="col-md-4">
                     {{--<div class="form-group">--}}
@@ -234,7 +325,22 @@
 
                     </div>
 
+<<<<<<< HEAD
 
+=======
+                    <div class="form-group">
+                        <label for="centro_costo" class="col-sm-5 control-label">Centro de Costo</label>
+                        <div class="col-sm-7">
+                            <select class=" js-states form-control" tabindex="-1" style="display: none; width: 100%" name="centro_costo" id="centro_costo" required>
+                                <option value="{{$micentro->id}}">{{$micentro->name}}</option>
+                                @foreach($otros_centro_costo as $item)
+                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                @endforeach
+                            </select>
+                            <div class="text-danger" id="error_costo">{{$errors->first('centro_costo')}}</div>
+                        </div>
+                    </div>
+>>>>>>> origin/master
 
                     <div class="form-group">
                         <label for="comment" class="col-sm-5 control-label">Comentario</label>
@@ -242,12 +348,20 @@
                             {!!  Form::textarea('comment',null,['class'=> 'form-control','id'=>'comment','rows'=>'5']) !!}
                         </div>
                     </div>
+<<<<<<< HEAD
                     </div>
                     {{--<div class="form-group">--}}
                         {{--<label for="inputPassword3" class="control-label">Concepto</label>--}}
                         {{--<div class="note-editable" contenteditable="true" spellcheck="true" lang="es"></div>--}}
                     {{--</div>--}}
                 {{--</div>--}}
+=======
+                    <div class="form-group">
+                        <label for="inputPassword3" class="control-label">Concepto</label>
+                        <div class="note-editable" contenteditable="true" spellcheck="true" lang="es"></div>
+                    </div>
+                </div>
+>>>>>>> origin/master
                 <div class="col-md-4">
                     <input type="hidden" id="aprobada" name="aprobada" value="{{$compra->is_accounted_supplier}}">
                     @if($compra->is_accounted_supplier==0)
@@ -255,6 +369,7 @@
 
                             <input type="hidden" id="dinero" name="dinero" value="">
 
+<<<<<<< HEAD
                             <button type="submit" class="btn btn-success " id="aprobar_compra_actualizar" >Aprobar</button>
                             <button type="submit" class="btn btn-success" id="guardar_compra_actualizar" >Actualizar</button>
                         </div>
@@ -282,6 +397,17 @@
         </table>
     </div>
 </div>
+=======
+                            <button type="submit" class="btn btn-success " id="aprobar_compra_actualizar" ng-click="submitForm(formData)" ng-disabled="!Form.$valid">Aprobar</button>
+                            <button type="submit" class="btn btn-success" id="guardar_compra_actualizar" ng-click="submitForm(formData)" ng-disabled="!Form.$valid">Actualizar</button>
+                        </div>
+                    @endif
+                </div>
+            </form>
+        </div>
+
+
+>>>>>>> origin/master
 
         <form method="post" action="{{url('realizar_compra')}}" id="form_aprobar_compra">
 
@@ -297,6 +423,7 @@
         </form>
 
 
+<<<<<<< HEAD
     <div class="col-md-4">
         <!-- Button trigger modal -->
         {{--<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" id="boton_pago" style="display: block;"> Generar Pago</button>--}}
@@ -327,6 +454,122 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 
+=======
+        <div class="col-md-4">
+
+            @if($compra->is_accounted_customer==0)
+                    <!-- Button trigger modal -->
+            {{--<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" id="boton_pago" style="display: block;"> Generar Pago</button>--}}
+            @endif
+                    <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Crear Pago</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="alert alert-danger" id='result1' style="display: none;">
+                                @if(Session::has('message'))
+                                    {{Session::get('message')}}
+                                @endif
+                            </div>
+                            <div ng-controller="MainCtrll">
+                                <form class="form-horizontal" method="post"  action="{{url('crear_pago')}}" id="form_save_pagos" name="Form">
+
+                                    {!! csrf_field() !!}
+
+                                    <input type="hidden" name="micompania" value="{{App\Empresa::Comp(Auth::user()->company_id)[0]->id}}">
+
+
+
+                                    <div class='form-group'>
+                                        <label for="serie" class="col-sm-3 control-label">Serie:</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" name="serie" id="serie" class="form-control" value="" autocomplete="off" ng-model="formData.serie" required
+                                                   ng-class="{ error: Form.serie.$error.required && !Form.$pristine}"/>
+                                            <div class="text-danger" id="error_serie">{{$errors->first('serie')}}</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="contribuyente" class="col-sm-3 control-label">Contribuyente:</label>
+                                        <div class="col-sm-4">
+                                            <input type="hidden" id="contribuyente" class="form-control" name="contribuyente" value="" readonly>
+                                            <input type="text" id="contribuyente1" class="form-control" name="contribuyente1" value="" readonly>
+
+
+                                        </div>
+                                    </div>
+
+                                    <div class='form-group'>
+                                        <label for="fecha" class="col-sm-3 control-label">Fecha:</label>
+                                        <div class="col-sm-4">
+                                            <input type="date" name="fecha_pago" id="fecha_pago" class="form-control" readonly>
+                                            <div class="text-danger" id="error_fecha">{{$errors->first('fecha')}}</div>
+                                        </div>
+                                    </div>
+
+                                    <div class='form-group'>
+                                        <label for="recibo" class="col-sm-3 control-label">Recibo:</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" name="recibo" class="form-control" value="" autocomplete="off"  placeholder="" ng-model="formData.recibo" required
+                                                   ng-class="{ error: Form.recibo.$error.required && !Form.$pristine}"/>
+                                            <div class="text-danger"id="error_recibo">{{$errors->first('recibo')}}</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="cuenta" class="col-sm-3 control-label">Cuenta:</label>
+                                        <div class="col-sm-4">
+                                            <select class="form-control" name="cuenta" id="cuenta" style="width: 100%" ng-model="formData.cuenta" required
+                                                    ng-class="{ error: Form.cuenta.$error.required && !Form.$pristine}">
+                                                <option value="">...</option>
+                                                @foreach(App\Accounts::Account(App\Empresa::Comp(Auth::user()->company_id)[0]->id) as $item)
+
+                                                    <option value="{{$item->id}}">{{$item->name}}</option>
+                                                @endforeach
+                                            </select>
+                                            <div class="text-danger" id="error_cuenta">{{$errors->first('cuenta')}}</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="moneda" class="col-sm-3 control-label">Moneda:</label>
+                                        <div class="col-sm-4">
+                                            <input type="hidden" id="moneda11" class="form-control" name="moneda11" value="" readonly>
+                                            <input type="text" id="moneda1" class="form-control" name="moneda1" value="" readonly>
+                                            {{--<select class="form-control" name="moneda" style="width: 100%">--}}
+                                            {{--@foreach($moneda as $item)--}}
+                                            {{--<option value="{{$item->id}}">{{$item->name}}</option>--}}
+                                            {{--@endforeach--}}
+                                            {{--</select>--}}
+
+                                        </div>
+                                    </div>
+
+                                    <div class='form-group'>
+                                        <label for="monto" class="col-sm-3 control-label">Monto:</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" name="monto" id="monto" class="form-control" readonly/>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-sm-4">
+                                            <button type="submit" class="btn btn-success" id="enviar_pago"  ng-click="submitForm(formData)" ng-disabled="!Form.$valid">Guardar</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                        </div>
+>>>>>>> origin/master
                     </div>
                 </div>
             </div>
@@ -337,7 +580,10 @@
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 @endsection
 
 @section('scripts')
@@ -350,4 +596,8 @@
 
 
 
+<<<<<<< HEAD
 @endsection
+=======
+@endsection
+>>>>>>> origin/master

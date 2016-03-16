@@ -14,7 +14,11 @@ class Cuenta extends Model
    
      
     protected $fillable = ['char_id', 'country_id','company_id','vat_id','fixed_asset_group_id','cost_center_id', 'code', 'name', 'chart_type', 
+<<<<<<< HEAD
         'chart_subtype', 'level','my_company_id','charts_generic','account_id'];//
+=======
+        'chart_subtype', 'level','my_company_id','charts_generic'];//
+>>>>>>> origin/master
 
 
     public function scopeCuentas_Sin_Pres($query,$chart_id)
@@ -62,8 +66,11 @@ class Cuenta extends Model
         }
 
     }
+<<<<<<< HEAD
 
     public function scopeMiPadre($query,$id){
         return $query->where('id',$id)->select('id','code','chart_type');
     }
+=======
+>>>>>>> origin/master
 }

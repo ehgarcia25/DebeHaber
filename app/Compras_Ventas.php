@@ -9,7 +9,11 @@ class Compras_Ventas extends Model
     
      protected $table = 'commercial_invoices';
     
+<<<<<<< HEAD
     protected $fillable = ['id_branch', 'costcenter_id', 'currency_rate_id',
+=======
+    protected $fillable = ['customer_id', 'customer_branch_id','supplier_id', 'supplier_branch_id', 'costcenter_id', 'currency_rate_id', 
+>>>>>>> origin/master
         'invoice_total', 'invoice_number', 'invoice_code', 'payment_condition', 'series'
         ,'invoice_date', 'timestamp','is_accounted_customer','is_accounted_supplier','id_relaciones'];
 
@@ -50,6 +54,7 @@ public function scopeCompra($query, $id){
     public function scopegetTimbrado($query,$id_relacion,$fecha)
     {
         return $query->where('id_relaciones',$id_relacion)
+<<<<<<< HEAD
             ->where('code_date','>=',$fecha)
             ->select('invoice_code');
     }
@@ -59,6 +64,12 @@ public function scopeCompra($query, $id){
         return $query->where('invoice_code',$codigo)->select('invoice_code','code_date','id');
     }
 
+=======
+            ->where('code_date','<=',$fecha)
+            ->select('invoice_code');
+    }
+
+>>>>>>> origin/master
     public function relaciones()
     {
         return $this->hasMany('App\Relaciones');

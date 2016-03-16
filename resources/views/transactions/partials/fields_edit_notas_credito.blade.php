@@ -7,7 +7,11 @@
     <div class="form-group">
         <label for="serie" class="col-sm-3 control-label">Series</label>
         <div class="col-sm-7">
+<<<<<<< HEAD
              {!!  Form::text('serie',$nota_credito->series,['class'=> 'form-control', 'required','autocomplete'=>'off']) !!}
+=======
+             {!!  Form::text('serie',$nota_credito->series,['class'=> 'form-control', 'required','autocomplete'=>'off', 'ng-class'=>'{ error: Form.serie.$error.required && !Form.$pristine}']) !!}
+>>>>>>> origin/master
 
 
         </div>
@@ -16,9 +20,13 @@
     <div class="form-group">
         <label for="fecha" class="col-sm-3 control-label">Fecha</label>
         <div class="col-sm-7">
+<<<<<<< HEAD
 
             {!!  Form::text('fecha',date("m/d/Y", strtotime($nota_credito->return_date)),['class'=> 'form-control date-picker', 'id'=>'fecha', 'required','autocomplete'=>'off','data-mask'=>'00/00/0000','maxlength'=>'10']) !!}
 
+=======
+            {!!  Form::date('fecha',$nota_credito->return_date,['class'=> 'form-control', 'id'=>'fecha', 'required','autocomplete'=>'off', 'ng-class'=>'{ error: Form.fecha.$error.required && !Form.$pristine}']) !!}
+>>>>>>> origin/master
         </div>
 
     </div>
@@ -40,7 +48,11 @@
             {{--</select>--}}
 
 
+<<<<<<< HEAD
             {!!  Form::text('contribuyente',$micompania->gov_code." ".$micompania->name,['class'=> 'form-control','id'=>'example-ajax-post', 'required','autocomplete'=>'off']) !!}
+=======
+            {!!  Form::text('contribuyente',$micompania->gov_code." ".$micompania->name,['class'=> 'form-control','id'=>'example-ajax-post', 'required','autocomplete'=>'off', 'ng-class'=>'{ error: Form.contribuyente.$error.required && !Form.$pristine}']) !!}
+>>>>>>> origin/master
 
             <input type="hidden" id="valor" name="usuarios" class="form-control" value=""/>
         </div>
@@ -63,6 +75,7 @@
 
         </div>
     </div>
+<<<<<<< HEAD
     <div class="form-group">
         <label for="centro_costo" class="col-sm-3 control-label">Centro de Costo</label>
         <div class="col-sm-7">
@@ -70,12 +83,18 @@
             <div class="text-danger" id="error_costo">{{$errors->first('centro_costo')}}</div>
         </div>
     </div>
+=======
+>>>>>>> origin/master
 
     <div class="form-group">
         <label for="rango" class="col-sm-3 control-label">Rango</label>
         <div class="col-sm-7">
 
+<<<<<<< HEAD
             {!!  Form::select('rango',$rango,null,['class'=> 'form-control selected','id'=>'rango1','required' ]) !!}
+=======
+            {!!  Form::select('rango',$rango,null,['class'=> 'form-control selected','id'=>'rango','required' ]) !!}
+>>>>>>> origin/master
 
         </div>
     </div>
@@ -99,18 +118,29 @@
     <div class="form-group">
         <label for="numero" class="col-sm-3 control-label">Número Nota Crédito</label>
         <div class="col-sm-7">
+<<<<<<< HEAD
             {{--{!!  Form::text('numero',$nota_credito->return_number,['class'=> 'form-control','maxlength'=>'15','ng-pattern'=>'/0\d{2}\-0\d{2}\-00\d{5}/','required' ,'placeholder'=>'000-000-0000000', 'required','autocomplete'=>'off']) !!}--}}
             {!!  Form::text('numero',$nota_credito->return_number,['class'=> 'form-control','readonly','id'=>'numero']) !!} </div>
 
     </div>
 
 
+=======
+            {!!  Form::text('numero',$nota_credito->return_number,['class'=> 'form-control','maxlength'=>'15','ng-pattern'=>'/0\d{2}\-0\d{2}\-00\d{5}/','required' ,'placeholder'=>'000-000-0000000', 'required','autocomplete'=>'off', 'ng-class'=>'{ error: Form.numero_factura.$error.pattern || Form.numero_factura.$error.required && !Form.$pristine}']) !!}
+        </div>
+    </div>
+
+>>>>>>> origin/master
     <div class="form-group">
         <label for="numero_factura" class="col-sm-3 control-label">Número Factura</label>
         <div class="col-sm-7">
             {{--{!!  Form::text('numero_factura',null,['class'=> 'form-control','maxlength'=>'15','data-mask'=>'000-000-0000000','placeholder'=>'000-000-0000000', 'required','autocomplete'=>'off','ng-model'=>'formData.numero_factura', 'ng-class'=>'{ error: Form.numero_factura.$error.required && !Form.$pristine}']) !!}--}}
+<<<<<<< HEAD
             {{--{!!  Form::text('numero_factura',$nota_credito->return_number_factura,['class'=> 'form-control','readonly','id'=>'numero_factura']) !!}--}}
             {!!  Form::text('numero_factura',$nota_credito->return_number_factura,['class'=> 'form-control']) !!}
+=======
+            {!!  Form::select('numero_factura',[],null,['class'=> 'js-states form-control','multiple'=>"multiple",'tabindex'=>"-1", 'style'=>"display: none; width: 100%",'id'=>'numero_factura']) !!}
+>>>>>>> origin/master
         </div>
     </div>
 
@@ -164,13 +194,21 @@
         <label for="moneda" class="col-sm-3 control-label">Moneda</label>
         <div class="col-sm-7">
 
+<<<<<<< HEAD
             {!!  Form::select('moneda',$moneda,$mimoneda,['class'=> 'form-control moneda','id'=>'moneda', 'required']) !!}
+=======
+            {!!  Form::select('moneda',[],$mimoneda,['class'=> 'form-control','id'=>'moneda', 'required']) !!}
+>>>>>>> origin/master
 
 
         </div>
         <div class="col-sm-2">
             <a href="#!" id="taza_cambio" data-type="text" data-pk="1" data-title="Enter username"
+<<<<<<< HEAD
                class="editable editable-click" style="display: inline;">{{$mitaza[0]->buy_rate}}</a>
+=======
+               class="editable editable-click" style="display: inline;">{{$mitaza->buy_rate}}</a>
+>>>>>>> origin/master
         </div>
     </div>
     {{-- */$x=0;/* --}}
@@ -215,20 +253,90 @@
     <div class="col-sm-3">
         <!-- Empty Space to push DataGrid  -->
     </div>
+<<<<<<< HEAD
 
+=======
+    <div class="col-sm-7 panel-silver">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Cuenta</th>
+                <th>Debe</th>
+                <th>Haber</th>
+
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr >
+                <th scope="row"></th>
+                <td id="nombre_caja"></td>
+                <td id="valor_caja"></td>
+                <td id="dinero_total"> <input type="hidden" id="valor_total" name="valor_total" value="0"></td>
+                {{--<td>--}}
+                    {{--<i class="icon-pencil" style="color: silver;"></i>--}}
+                {{--</td>--}}
+            </tr>
+            <tr id="centro_costos_tabla">
+                <th scope="row"></th>
+                <td id="nombre_costo"></td>
+                <td><input type="hidden" id="valor_cuenta_costo" name="valor_coeficiente" value="0"></td>
+                <td id="valor_costo"></td>
+                {{--<td>--}}
+                    {{--<i class="icon-pencil" style="color: silver;"></i>--}}
+                {{--</td>--}}
+            </tr>
+            <tr>
+                <th scope="row"></th>
+                <td id="nombre_iva"></td>
+                <td></td>
+                <td id="iva_total"> <input type="hidden" id="valor_iva_total" name="valor_iva_total" value="0"> </td>
+                {{--<td>--}}
+                    {{--<i class="icon-pencil" style="color: silver;"></i>--}}
+                {{--</td>--}}
+            </tr>
+            </tbody>
+        </table>
+    </div>
+>>>>>>> origin/master
 </div>
 <div class="col-md-4">
 
 
+<<<<<<< HEAD
 
+=======
+    <div class="form-group">
+        <label for="centro_costo" class="col-sm-5 control-label">Centro de Costo</label>
+        <div class="col-sm-7">
+            <select class=" js-states form-control" tabindex="-1" style="display: none; width: 100%" name="centro_costo" id="centro_costo" required
+                    ng-class="{ error: Form.centro_costo.$error.required && !Form.$pristine}">
+                <option value="{{$micentro->id}}">{{$micentro->name}}</option>
+                @foreach($otros_centro_costo as $item)
+                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                @endforeach
+            </select>
+            <div class="text-danger" id="error_costo">{{$errors->first('centro_costo')}}</div>
+        </div>
+    </div>
+>>>>>>> origin/master
     <div class="form-group">
         <label for="comment" class="col-sm-5 control-label">Comentario</label>
         <div class="col-sm-7">
             {!!  Form::textarea('comment',null,['class'=> 'form-control','id'=>'comment','rows'=>'5']) !!}
         </div>
     </div>
+<<<<<<< HEAD
     {{--<div class="form-group">--}}
         {{--<label for="inputPassword3" class="control-label">Concepto</label>--}}
         {{--<div class="note-editable" contenteditable="true" spellcheck="true" lang="es"></div>--}}
     {{--</div>--}}
     </div>
+=======
+    <div class="form-group">
+        <label for="inputPassword3" class="control-label">Concepto</label>
+        <div class="note-editable" contenteditable="true" spellcheck="true" lang="es"></div>
+    </div>
+    </div>
+>>>>>>> origin/master

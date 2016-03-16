@@ -28,7 +28,11 @@ class Divisas extends Model
     public function scopeMiMoneda($query,$id){
         return $query->join('currency_rates', 'currency_rates.currency_id', '=', 'currencies.id')
            ->select('currencies.name','currency_rates.id')
+<<<<<<< HEAD
             ->where('currency_rates.id',$id)->get();
+=======
+            ->where('currency_rates.id',$id);
+>>>>>>> origin/master
     }
 
     public function scopeDivisas($query)

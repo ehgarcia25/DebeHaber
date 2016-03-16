@@ -69,8 +69,11 @@
         <div class="col-sm-7">
             {!!  Form::select('moneda',[],null,['class'=> 'form-control','ng-model'=>"formData.moneda",'id'=>'moneda', 'required',
                          'ng-class'=>'{ error: Form.moneda.$error.required && !Form.$pristine}']) !!}
+<<<<<<< HEAD
 
                          
+=======
+>>>>>>> origin/master
         </div>
         <div class="col-sm-2">
             <a href="#!" id="taza_cambio" data-type="text" data-pk="1" data-title="Enter username"

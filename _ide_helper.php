@@ -1,7 +1,11 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
+<<<<<<< HEAD
  * Generated for Laravel 5.1.29 (LTS) on 2016-03-11.
+=======
+ * Generated for Laravel 5.1.27 (LTS) on 2015-12-22.
+>>>>>>> origin/master
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -2110,6 +2114,7 @@ namespace {
         }
         
         /**
+<<<<<<< HEAD
          * Begin executing a new tags operation if the store supports it.
          *
          * @param string $name
@@ -2134,6 +2139,8 @@ namespace {
         }
         
         /**
+=======
+>>>>>>> origin/master
          * Get the default cache time.
          *
          * @return int 
@@ -3465,11 +3472,19 @@ namespace {
          *
          * @param int $count
          * @param callable $callback
+<<<<<<< HEAD
          * @return bool 
          * @static 
          */
         public static function chunk($count, $callback){
             return \Illuminate\Database\Eloquent\Builder::chunk($count, $callback);
+=======
+         * @return void 
+         * @static 
+         */
+        public static function chunk($count, $callback){
+            \Illuminate\Database\Eloquent\Builder::chunk($count, $callback);
+>>>>>>> origin/master
         }
         
         /**
@@ -4895,7 +4910,11 @@ namespace {
     class File extends \Illuminate\Support\Facades\File{
         
         /**
+<<<<<<< HEAD
          * Determine if a file or directory exists.
+=======
+         * Determine if a file exists.
+>>>>>>> origin/master
          *
          * @param string $path
          * @return bool 
@@ -11641,7 +11660,11 @@ namespace {
          * @param string $path
          * @param array $data
          * @param array $mergeData
+<<<<<<< HEAD
          * @return \Illuminate\Contracts\View\View 
+=======
+         * @return \Illuminate\View\View 
+>>>>>>> origin/master
          * @static 
          */
         public static function file($path, $data = array(), $mergeData = array()){
@@ -11666,7 +11689,11 @@ namespace {
          *
          * @param string $view
          * @param mixed $data
+<<<<<<< HEAD
          * @return \Illuminate\Contracts\View\View 
+=======
+         * @return \Illuminate\View\View 
+>>>>>>> origin/master
          * @static 
          */
         public static function of($view, $data = array()){
@@ -11785,7 +11812,11 @@ namespace {
         /**
          * Call the composer for a given view.
          *
+<<<<<<< HEAD
          * @param \Illuminate\Contracts\View\View $view
+=======
+         * @param \Illuminate\View\View $view
+>>>>>>> origin/master
          * @return void 
          * @static 
          */
@@ -11796,7 +11827,11 @@ namespace {
         /**
          * Call the creator for a given view.
          *
+<<<<<<< HEAD
          * @param \Illuminate\Contracts\View\View $view
+=======
+         * @param \Illuminate\View\View $view
+>>>>>>> origin/master
          * @return void 
          * @static 
          */
@@ -13554,6 +13589,7 @@ namespace {
     }
 
 
+<<<<<<< HEAD
     class Image extends \Intervention\Image\Facades\Image{
         
         /**
@@ -13796,5 +13832,7 @@ namespace {
     }
 
 
+=======
+>>>>>>> origin/master
 }
 

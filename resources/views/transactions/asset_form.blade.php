@@ -39,6 +39,7 @@ $(document).ready(function() {
         .find('[name="ipAddress"]').mask('099.099.099.099');
 });
 </script> -->
+<<<<<<< HEAD
 
 
 {!! Form::open(array('url'=> 'save_activos_form', 'method'=> 'post','class'=>'form-horizontal', 'id'=>'form_save_activos','data-toggle'=>"validator", 'role'=>"form")) !!}
@@ -47,6 +48,14 @@ $(document).ready(function() {
   @include('transactions.partials.fields_assets')
 </div>
 <div class="col-md-8">
+=======
+<div ng-app="formApp">
+    <div ng-controller="MainCtrl">
+<form class="form-horizontal" action="{{url()}}/save_activos_form" method="post" name="Form">
+    {!! csrf_field() !!}
+  @include('transactions.partials.fields_assets')
+<div class="col-md-4">
+>>>>>>> origin/master
     <!-- <h2>Nombre del Cliente</h2>
     <h5>80001930-2</h5>
     <div class="row">
@@ -73,8 +82,12 @@ $(document).ready(function() {
     {{--</div>--}}
 
     <div class="form-group">
+<<<<<<< HEAD
         <label for="plazo" class="col-sm-3 control-label"></label>
         <button type="submit" class="btn btn-success">Guardar</button>
+=======
+        <button type="submit" class="btn btn-success" ng-click="submitForm(formData)" ng-disabled="!Form.$valid">Guardar</button>
+>>>>>>> origin/master
     </div>
 </div>
   {!! Form::close() !!}
@@ -89,4 +102,66 @@ $(document).ready(function() {
 @section('scripts')
 
 
+<<<<<<< HEAD
+=======
+</div>
+
+    </div>
+
+    @include('admin.partials.form_auxilar')
+>>>>>>> origin/master
+@endsection
+
+@section('scripts')
+    <script>
+        var app = angular.module('formApp', []);
+
+        app.controller('MainCtrl', function($scope) {
+            $scope.formData = {};
+
+            $scope.submitForm = function (formData) {
+
+            };
+        });
+    </script>
+
+    <script>
+        $('#moneda').change(function (e) {
+
+
+         //   var id_name= $('#moneda').val().split(".")
+            var fecha = $('#fecha').val()
+
+            var cadena = $('#moneda').val()
+            var id = cadena[0]
+            $('#id_divisa').val(id)
+            e.preventDefault(e);
+            var form = $('#form_buscar_taza_cambio')
+            var url = form.attr('action').replace('{id}',cadena).replace('{fecha}',fecha);
+
+            var datos = form.serialize()
+
+
+            $.get(url, datos, function (data) {
+                $('#taza_cambio').text(data.taza)
+            })
+
+
+        })
+        $(document).ready(function () {
+            var fecha = $('#fecha').val()
+            var cadena = $('#moneda').val()
+
+            e.preventDefault(e);
+            var form = $('#form_buscar_taza_cambio')
+            var url = form.attr('action').replace('{id}',cadena).replace('{fecha}',fecha);
+
+            var datos = form.serialize()
+
+
+            $.get(url, datos, function (data) {
+                $('#taza_cambio').text(data.taza)
+            })
+        })
+    </script>
 @endsection

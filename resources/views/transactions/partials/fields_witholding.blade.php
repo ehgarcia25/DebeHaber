@@ -7,14 +7,22 @@
     <div class="form-group">
         <label for="tipo" class="col-sm-3 control-label">Tipo</label>
         <div class="col-sm-7">
+<<<<<<< HEAD
             {!!  Form::select('tipo',['1'=>'Emitidas','2'=>'Recibidas'],null,['class'=> 'js-states form-control','id'=>'tipo_retencion','tabindex'=>"-1", 'style'=>"display: none; width: 100%"]) !!}
+=======
+            {!!  Form::select('tipo',['Emitida'=>'Emitidas','Sufrida'=>'Recibidas'],null,['class'=> 'js-states form-control','id'=>'tipo_retencion','tabindex'=>"-1", 'style'=>"display: none; width: 100%"]) !!}
+>>>>>>> origin/master
         </div>
     </div>
 
     <div class="form-group">
         <label for="series" class="col-sm-3 control-label">Series</label>
         <div class="col-sm-7">
+<<<<<<< HEAD
              {!!  Form::text('series',null,['class'=> 'form-control', 'required','autocomplete'=>'off']) !!}
+=======
+             {!!  Form::text('serie',null,['class'=> 'form-control', 'required','autocomplete'=>'off','ng-model'=>'formData.serie', 'ng-class'=>'{ error: Form.serie.$error.required && !Form.$pristine}']) !!}
+>>>>>>> origin/master
 
 
         </div>
@@ -24,8 +32,13 @@
         <label for="fecha" class="col-sm-3 control-label">Fecha</label>
         <div class="col-sm-7">
             {{--{!!  Form::date('fecha',null,['class'=> 'form-control fecha', 'id'=>'fecha', 'required','autocomplete'=>'off']) !!}--}}
+<<<<<<< HEAD
             {!!  Form::text('fecha',null,['class'=> 'form-control date-picker', 'id'=>'fecha', 'required','autocomplete'=>'off','data-mask'=>'00/00/0000','maxlength'=>'10']) !!}
 
+=======
+            {!!  Form::text('fecha',null,['class'=> 'form-control date-picker', 'id'=>'fecha','readonly','data-date-format'=>"yyyy-mm-dd",
+             ]) !!}
+>>>>>>> origin/master
 
             <div class="text-danger">{{$errors->first('fecha')}}</div>
         </div>
@@ -40,7 +53,11 @@
         <label for="contribuyente" class="col-sm-3 control-label">Contribuyente</label>
         <div class="col-sm-7" id="news">
 
+<<<<<<< HEAD
             {!!  Form::text('contribuyente',null,['class'=> 'form-control','id'=>'example-ajax-post', 'required','autocomplete'=>'off']) !!}
+=======
+            {!!  Form::text('contribuyente',null,['class'=> 'form-control','id'=>'example-ajax-post', 'required','autocomplete'=>'off','ng-model'=>'formData.contribuyente', 'ng-class'=>'{ error: Form.contribuyente.$error.required && !Form.$pristine}']) !!}
+>>>>>>> origin/master
 
             <input type="hidden" id="valor" name="usuarios" class="form-control" value=""/>
         </div>
@@ -54,6 +71,7 @@
             {{--</a>--}}
         </div>
     </div>
+<<<<<<< HEAD
     {{--<div class="form-group">--}}
         {{--<label for="sucursal" class="col-sm-3 control-label">Sucursal</label>--}}
         {{--<div class="col-sm-7">--}}
@@ -69,6 +87,22 @@
         <div class="col-sm-7">
 
             {!!  Form::select('rango',[''=>''],null,['class'=> 'form-control selected','id'=>'rango']) !!}
+=======
+    <div class="form-group">
+        <label for="sucursal" class="col-sm-3 control-label">Sucursal</label>
+        <div class="col-sm-7">
+
+            {!!  Form::select('sucursal',$sucursal,null,['class'=> 'form-control','id'=>'sucursal' ,'ng-model'=>"formData.sucursal", 'required',
+                    'ng-class'=>'{ error: Form.sucursal.$error.required && !Form.$pristine}']) !!}
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="rango" class="col-sm-3 control-label">Rango</label>
+        <div class="col-sm-7">
+
+            {!!  Form::select('rango',[''=>''],null,['class'=> 'form-control selected','id'=>'rango' , 'required']) !!}
+>>>>>>> origin/master
 
         </div>
     </div>
@@ -90,7 +124,11 @@
     <div class="form-group">
         <label for="numero" class="col-sm-3 control-label">Número Retención</label>
         <div class="col-sm-7">
+<<<<<<< HEAD
             {!!  Form::text('numero',null,['class'=> 'form-control','id'=>'numero_retencion','maxlength'=>'15','data-mask'=>'000-000-0000000' ,'placeholder'=>'000-000-0000000', 'required','autocomplete'=>'off','ng-model'=>'formData.numero']) !!}
+=======
+            {!!  Form::text('numero',null,['class'=> 'form-control','id'=>'numero_retencion','maxlength'=>'15','data-mask'=>'000-000-0000000' ,'placeholder'=>'000-000-0000000', 'required','autocomplete'=>'off','ng-model'=>'formData.numero', 'ng-class'=>'{ error: Form.numero.$error.required && !Form.$pristine}']) !!}
+>>>>>>> origin/master
         </div>
     </div>
 
@@ -124,7 +162,11 @@
     <div class="form-group">
         <label for="retencion" class="col-sm-3 control-label">% Retención</label>
         <div class="col-sm-7">
+<<<<<<< HEAD
             {!!  Form::text('retencion',30,['class'=> 'form-control','id'=>'retencion', 'required','autocomplete'=>'off']) !!}
+=======
+            {!!  Form::text('retencion',30,['class'=> 'form-control','id'=>'retencion', 'required','autocomplete'=>'off','ng-model'=>'formData.retencion','ng-init' => "formData.retencion='30'", 'ng-class'=>'{ error: Form.retencion.$error.required && !Form.$pristine}']) !!}
+>>>>>>> origin/master
         </div>
 
         <div class="col-sm-2">

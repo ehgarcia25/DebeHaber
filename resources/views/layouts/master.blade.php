@@ -13,7 +13,53 @@
 
     <!-- Styles -->
    {{-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>--}}
+<<<<<<< HEAD
     @include('layouts.css')
+=======
+    <link href="{{url()}}/assets/plugins/pace-master/themes/blue/pace-theme-flash.css" rel="stylesheet"/>
+    <link href="{{url()}}/assets/plugins/uniform/css/uniform.default.min.css" rel="stylesheet"/>
+    <link href="{{url()}}/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="{{url()}}/assets/plugins/fontawesome/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+    <link href="{{url()}}/assets/plugins/line-icons/simple-line-icons.css" rel="stylesheet" type="text/css"/>
+    <link href="{{url()}}/assets/plugins/offcanvasmenueffects/css/menu_cornerbox.css" rel="stylesheet" type="text/css"/>
+    <link href="{{url()}}/assets/plugins/waves/waves.min.css" rel="stylesheet" type="text/css"/>
+    <link href="{{url()}}/assets/plugins/switchery/switchery.min.css" rel="stylesheet" type="text/css"/>
+    <link href="{{url()}}/assets/plugins/3d-bold-navigation/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="{{url()}}/assets/plugins/slidepushmenus/css/component.css" rel="stylesheet" type="text/css"/>
+    <link href="{{url()}}/assets/plugins/jstree/themes/default/style.min.css" rel="stylesheet" type="text/css"/>
+    <link href="{{url()}}/assets/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css"/>
+
+    <link href="{{url()}}/assets/plugins/jstree/themes/default/style.min.css" rel="stylesheet" type="text/css"/>
+    <link href="{{url()}}/assets/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css"/>
+    <link href='{{url()}}/assets/plugins/fullcalendar/fullcalendar.print.css' rel='stylesheet' media='print' />
+
+
+    <link href="{{url()}}/assets/plugins/datatables/css/jquery.datatables.min.css" rel="stylesheet" type="text/css"/>
+    <link href="{{url()}}/assets/plugins/datatables/css/jquery.datatables_themeroller.css" rel="stylesheet" type="text/css"/>
+    <link href="{{url()}}/assets/plugins/x-editable/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet" type="text/css">
+
+
+    <link href="{{url()}}/assets/plugins/summernote-master/summernote.css" rel="stylesheet" type="text/css"/>
+    <link href="{{url()}}/assets/plugins/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" type="text/css"/>
+    <link href="{{url()}}/assets/plugins/bootstrap-colorpicker/css/colorpicker.css" rel="stylesheet" type="text/css"/>
+    <link href="{{url()}}/assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet" type="text/css"/>
+    <link href="{{url()}}/assets/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css"/>
+
+    <!-- Theme Styles -->
+    <link href="{{url()}}/assets/css/modern.min.css" rel="stylesheet" type="text/css"/>
+    <link href="{{url()}}/assets/css/themes/green.css" class="theme-color" rel="stylesheet" type="text/css"/>
+    <link href="{{url()}}/assets/css/custom.css" rel="stylesheet" type="text/css"/>
+
+ <script src="{{url()}}/assets/plugins/3d-bold-navigation/js/modernizr.js"></script>
+    <script src="{{url()}}/assets/plugins/offcanvasmenueffects/js/snap.svg-min.js"></script>
+
+    <link href="{{url()}}/assets/plugins/jquery-ui/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+    <link href="{{url()}}/assets/plugins/EasyAutocomplete-1.3.3/easy-autocomplete.min.css" rel="stylesheet" type="text/css"/>
+    <link href="{{url()}}//assets/plugins/jquery-typeahead-2.3.4/dist/jquery.typeahead.min.css" rel="stylesheet" type="text/css"/>
+
+    {{--<link href="{{url()}}/assets/plugins/EasyAutocomplete-1.3.3/easy-autocomplete.themes.min.css" rel="stylesheet" type="text/css"/>--}}
+
+>>>>>>> origin/master
 </head>
 <body class="page-header-fixed" >
 
@@ -227,6 +273,7 @@
             <div class="page-breadcrumb">
                 @yield('breadcrumbs')
             </div>
+<<<<<<< HEAD
             <div class="row">
                 <div class="col-md-6 col-md-offset-4"> @yield('botones')</div>
             </div>
@@ -239,6 +286,16 @@
             @yield('content')
         </div>
 
+=======
+
+        </div>
+
+        <div id="main-wrapper" >
+            <!-- CONTENT -->
+            @yield('content')
+        </div>
+
+>>>>>>> origin/master
         <div class="page-footer">
             <p class="no-s">2015 &copy; Cognitivo Paraguay</p>
         </div>
@@ -305,7 +362,62 @@
 
 
 <!-- Javascripts -->
+<<<<<<< HEAD
 @include('layouts.js')
+=======
+<script src="{{url()}}/assets/plugins/jquery/jquery-2.1.4.min.js"></script>
+<script src="{{url()}}/assets/plugins/jquery-typeahead-2.3.4/dist/jquery.typeahead.min.js"></script>
+<script src="{{url()}}/assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="{{url()}}/assets/plugins/EasyAutocomplete-1.3.3/jquery.easy-autocomplete.min.js"></script>
+
+
+<script src="{{url()}}/auxiliar/js/angular.min.js"></script>
+
+
+<script src="{{url()}}/assets/plugins/pace-master/pace.min.js"></script>
+<script src="{{url()}}/assets/plugins/jquery-blockui/jquery.blockui.js"></script>
+<script src="{{url()}}/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="{{url()}}/assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script src="{{url()}}/assets/plugins/switchery/switchery.min.js"></script>
+<script src="{{url()}}/assets/plugins/uniform/jquery.uniform.min.js"></script>
+<script src="{{url()}}/assets/plugins/offcanvasmenueffects/js/classie.js"></script>
+{{--<script src="{{url()}}/assets/plugins/offcanvasmenueffects/js/main.js"></script>--}}
+<script src="{{url()}}/assets/plugins/waves/waves.min.js"></script>
+<script src="{{url()}}/assets/plugins/3d-bold-navigation/js/main.js"></script>
+<script src="{{url()}}/assets/plugins/select2/js/select2.min.js"></script>
+<script src="{{url()}}/assets/plugins/jstree/jstree.min.js"></script>
+<script src="{{url()}}/assets/plugins/jquery-mockjax-master/jquery.mockjax.js"></script>
+<script src="{{url()}}/assets/plugins/moment/moment.js"></script>
+<script src="{{url()}}/assets/plugins/datatables/js/jquery.datatables.min.js"></script>
+<script src="{{url()}}/assets/plugins/x-editable/bootstrap3-editable/js/bootstrap-editable.js"></script>
+
+<script src="{{url()}}/assets/plugins/fullcalendar/lib/moment.min.js"></script>
+<script src="{{url()}}/assets/plugins/fullcalendar/fullcalendar.min.js"></script>
+<script src='{{url()}}/assets/plugins/fullcalendar/lang-all.js'></script>
+
+<script src="{{url()}}/assets/plugins/summernote-master/summernote.min.js"></script>
+<script src="{{url()}}/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="{{url()}}/assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+<script src="{{url()}}/assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
+<script src="{{url()}}/assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+<script src="{{url()}}/assets/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="{{url()}}/auxiliar/js/jquery.mask.js"></script>
+<script src="{{url()}}/assets/js/modern.min.js"></script>
+<script src="{{url()}}/assets/js/custom.js"></script>
+
+<script src="{{url()}}/assets/js/pages/form-select2.js"></script>
+<script src="{{url()}}/assets/js/pages/jstree.js"></script>
+<script src="{{url()}}/assets/js/pages/form-elements.js"></script>
+<script src="{{url()}}/assets/js/pages/table-data.js"></script>
+
+<script src="{{url()}}/auxiliar/js/operaciones.js"></script>
+{{--<script src="{{url()}}/assets/js/pages/calendar.js"></script>--}}
+
+<script src="{{url()}}/assets/js/pages/validator.js"></script>
+
+
+{{--<script src="{{url()}}/auxiliar/js/ng-infinite-scroll.min.js"></script>--}}
+>>>>>>> origin/master
 @yield('scripts')
 
 </body>

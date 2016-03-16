@@ -16,7 +16,11 @@ class Accounts extends Model
 
     public function scopeAccount($query, $id){
 
+<<<<<<< HEAD
         return $query->where('company_id',$id)->get();
+=======
+        return $query->where('company_id',$id);
+>>>>>>> origin/master
     }
 
     public function scopeNombre($query,$id){

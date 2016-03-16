@@ -71,14 +71,22 @@ class RetencionController extends Controller
 
             $moneda = \App\Divisas::Monedas()->lists('name','id');
 
+<<<<<<< HEAD
            // $sucursales= Sucursal::Sucursales(Session::get('id_empresa'))->lists('name','id');
+=======
+            $sucursales= Sucursal::Sucursales(Session::get('id_empresa'))->lists('name','id');
+>>>>>>> origin/master
             $cuentas=  Accounts::Account(Session::get('id_empresa'))->lists('name','id');
             // $timbrado = Timbrado::where();
 
 
             return view('transactions/witholding_form')
                 ->with('moneda', $moneda)
+<<<<<<< HEAD
                // ->with('sucursal', $sucursales)
+=======
+                ->with('sucursal', $sucursales)
+>>>>>>> origin/master
                 ->with('cuenta', $cuentas);
         }
         return redirect('list_empresas');
@@ -94,14 +102,33 @@ class RetencionController extends Controller
     public function store(Request $request)
     {
 
+<<<<<<< HEAD
 
+=======
+        $rules = [
+            'fecha' => 'required|date_format:yyyy-mm-dd',
+
+        ];
+
+        $validator = Validator::make($request->all(), $rules);
+
+        if ($validator->fails()) {
+            return redirect("retencion_form")
+                ->withErrors($validator)
+                ->withInput();
+        } else {
+>>>>>>> origin/master
 
             $retencion = new Retencion();
             $date = new \DateTime();
             $tipo=null;
 
 
+<<<<<<< HEAD
             if ($request->tipo == 1) {
+=======
+            if ($request->tipo == "Emitida") {
+>>>>>>> origin/master
                 $tipo=1;
 //                $retencion->customer_id = $request->micompania;
 //                $retencion->supplier_id = Controller::Dividir($request->contribuyente);
@@ -116,7 +143,11 @@ class RetencionController extends Controller
                     $relacion_new->save();
                     $retencion->id_relaciones=$relacion_new->getKey();
                 }
+<<<<<<< HEAD
             } else if ($request->tipo == 2) {
+=======
+            } else if ($request->tipo == "Sufrida") {
+>>>>>>> origin/master
                 $tipo=2;
 //                $retencion->customer_id = Controller::Dividir($request->contribuyente);
 //                $retencion->supplier_id = $request->micompania;
@@ -149,7 +180,11 @@ class RetencionController extends Controller
             //   $retencion->motivo = $request->motivo;
             $retencion->series = $request->series;
 
+<<<<<<< HEAD
             $retencion->witholding_date = date("Y-m-d", strtotime($request->fecha));
+=======
+            $retencion->witholding_date = $request->fecha;
+>>>>>>> origin/master
             $retencion->tipo = $tipo;
             $retencion->iva = $request->iva;
             $retencion->valor_sin_iva = $request->valor_sin_iva;
@@ -159,7 +194,11 @@ class RetencionController extends Controller
             $retencion->save();
 
             return redirect('retencion');
+<<<<<<< HEAD
 
+=======
+        }
+>>>>>>> origin/master
     }
     /**
      * Display the specified resource.
@@ -181,6 +220,7 @@ class RetencionController extends Controller
     public function edit($id)
     {
         $retencion= Retencion::find($id);
+<<<<<<< HEAD
         $relacion = Relaciones::find($retencion->id_relaciones);
 
         $mimoneda=Divisas::miMoneda($retencion->currency_rate_id)[0]->name;
@@ -203,6 +243,30 @@ class RetencionController extends Controller
             ->with('mimoneda',$mimoneda)
             ->with('micompania',$micompania)
           //  ->with('timbrado',$timbrado)
+=======
+        $moneda = \App\Divisas::Monedas();
+        $mitaza= \App\Divisas_rate::Taza($retencion->currency_rate_id);
+        $mimoneda= Divisas::find($mitaza->currency_id);
+
+        if ($retencion->tipo == "Emitida"){
+            $micompania = Empresa::find($retencion->supplier_id);
+
+        }
+
+        if ($retencion->tipo == "Sufrida"){
+            $micompania = Empresa::find($retencion->customer_id);
+
+        }
+
+        $timbrado= Timbrado::where('company_id',$micompania->id)->lists('value','id');
+
+        return view('transactions/edit_witholding_form')
+            ->with('moneda',$moneda)
+            ->with('mimoneda',$mimoneda)
+            ->with('micompania',$micompania)
+            ->with('mitaza',$mitaza)
+            ->with('timbrado',$timbrado)
+>>>>>>> origin/master
             ->with('retencion',$retencion);
     }
 
@@ -244,6 +308,7 @@ class RetencionController extends Controller
         $facturas=null;
         $result_factura=array();
         $result_timbrado=array();
+<<<<<<< HEAD
         if($tipo_retencion==1){
             $relacion= Relaciones::getRelacion(Session::get('id_empresa'),$empresa[0]->id)->get();
             $facturas= Compras_Ventas::where('id_relaciones',$relacion[0]->id)->get();
@@ -252,6 +317,14 @@ class RetencionController extends Controller
         else if($tipo_retencion==2){
             $relacion= Relaciones::getRelacion($empresa[0]->id,Session::get('id_empresa'))->get();
             $facturas= Compras_Ventas::where('id_relaciones',$relacion[0]->id)->get();
+=======
+        if($tipo_retencion=="Compra"){
+            $facturas= Compras::where('supplier_id',$empresa[0]->id)->get();
+        }
+
+        else if($tipo_retencion=="Venta"){
+            $facturas= Ventas::where('customer_id',$empresa[0]->id)->get();
+>>>>>>> origin/master
         }
 
            if(json_decode($facturas)!=[]){
@@ -296,8 +369,12 @@ class RetencionController extends Controller
     public function cargar_montos($id){
 
         $factura= Compras_Ventas::find($id);
+<<<<<<< HEAD
 
         $moneda=Divisas::miMoneda($factura->currency_rate_id);
+=======
+        $moneda=Divisas::miMoneda($factura->currency_rate_id)->get();
+>>>>>>> origin/master
 
         $suma_sin_iva=0;
         $valores_con_iva= Comercial_iva::where('commercial_invoice_id',$id)->get();

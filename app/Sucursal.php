@@ -23,10 +23,13 @@ class Sucursal extends Model
         return $query->where('id',$id);
     }
 
+<<<<<<< HEAD
     public function scopeall_sucursales($query){
         $result=$query->where('company_id',\Session::get('id_empresa'))->lists('code','id');
         $result->prepend('', '');
         return $result;
     }
+=======
+>>>>>>> origin/master
 
 }

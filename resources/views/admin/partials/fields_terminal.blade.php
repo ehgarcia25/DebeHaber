@@ -13,7 +13,10 @@
     <div class="col-sm-7">
 
         {!!  Form::text('name',null,['class'=> 'form-control','id'=>'name', 'required']) !!}
+<<<<<<< HEAD
         
+=======
+>>>>>>> origin/master
     </div>
 </div>
 
@@ -23,6 +26,10 @@
 
         {!!  Form::text('code',null,['class'=> 'form-control','id'=>'code', 'required']) !!}
     </div>
+<<<<<<< HEAD
 </div>
 
 
+=======
+</div>
+>>>>>>> origin/master

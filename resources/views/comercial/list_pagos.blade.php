@@ -7,7 +7,11 @@
 
 @section('content')
 
+<<<<<<< HEAD
     <a class="btn btn-primary btn-lg " href="{{url('form_pagos')}}">Crear Pago</a>
+=======
+    <a class="btn btn-primary btn-lg pull-right" href="{{url('form_pagos')}}">Crear Pago</a>
+>>>>>>> origin/master
     <div class="panel-heading clearfix">
 
     </div>

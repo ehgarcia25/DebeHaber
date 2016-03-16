@@ -6,7 +6,11 @@ use App\Rango;
 use App\Sucursal;
 use App\Terminal;
 use Illuminate\Http\Request;
+<<<<<<< HEAD
 use DateTime;
+=======
+
+>>>>>>> origin/master
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -36,11 +40,21 @@ class RangoController extends Controller
     public function create()
     {
 
+<<<<<<< HEAD
         $sucursales= Sucursal::where('company_id',\Session::get('id_empresa'))->lists('code','id');
         $terminal= Terminal::Terminales(\Session::get('id_empresa'))->lists('code','id');
         return view('admin.rango')
             ->with('terminal',$terminal)
             ->with('sucursal',$sucursales);
+=======
+        $value= 59;
+      //  dd(str_pad($value, 8, '0', STR_PAD_LEFT));
+
+        $sucursales= Sucursal::where('company_id',\Session::get('id_empresa'))->lists('name','id');
+       // $terminal=Terminal::where;
+
+        return view('admin.rango')->with('sucursal',$sucursales);
+>>>>>>> origin/master
     }
 
     /**
@@ -53,9 +67,15 @@ class RangoController extends Controller
     {
 
 
+<<<<<<< HEAD
         $rango=new Rango($request->all());
         $rango->current_range=$request->star_range;
         $rango->end_date=date("Y-m-d", strtotime($request->end_date));
+=======
+      //dd($request->end_date);
+        $rango=new Rango($request->all());
+       // $rango->end_date=
+>>>>>>> origin/master
         $rango->save();
 
       return  redirect('list_rango');
@@ -80,6 +100,7 @@ class RangoController extends Controller
      */
     public function edit($id)
     {
+<<<<<<< HEAD
         $rango= Rango::findOrFail($id);
         $rango->end_date=date("d/m/Y", strtotime($rango->end_date));
         $sucursal= Sucursal::Sucursales(\Session::get('id_empresa'))->lists('code','id');
@@ -88,6 +109,9 @@ class RangoController extends Controller
             ->with('sucursal',$sucursal)
             ->with('terminal',$terminal)
             ->with('rango',$rango);
+=======
+        //
+>>>>>>> origin/master
     }
 
     /**
@@ -99,12 +123,16 @@ class RangoController extends Controller
      */
     public function update(Request $request, $id)
     {
+<<<<<<< HEAD
         $rango= Rango::findOrFail($id);
 
         $rango->fill($request->all());
         $rango->save();
 
         return redirect()->back();
+=======
+        //
+>>>>>>> origin/master
     }
 
     /**
@@ -115,12 +143,17 @@ class RangoController extends Controller
      */
     public function destroy($id)
     {
+<<<<<<< HEAD
         $rango=Rango::find($id);
         $rango->delete();
 
         return redirect()->back();
     }
 
+=======
+        //
+    }
+>>>>>>> origin/master
     public function Cargar_Factura($id_rango)
     {
         $valor_actual= \App\Rango::Valoractual($id_rango)->get();

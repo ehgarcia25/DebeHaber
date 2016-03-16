@@ -13,7 +13,11 @@
 <div class="form-group">
     <label for="end_date" class="col-sm-2 control-label">Fecha Fin</label>
     <div class="col-sm-6">
+<<<<<<< HEAD
         {!!  Form::text('end_date',null,['class'=> 'form-control date-picker', 'required','autocomplete'=>'off','ng-model'=>'formData.end_date', 'ng-class'=>'{ error: Form.end_date.$error.required && !Form.$pristine}']) !!}
+=======
+        {!!  Form::text('end_date',null,['class'=> 'form-control date-picker','data-date-format'=>"yyyy-mm-dd", 'required','autocomplete'=>'off','ng-model'=>'formData.end_date', 'ng-class'=>'{ error: Form.end_date.$error.required && !Form.$pristine}']) !!}
+>>>>>>> origin/master
     </div>
 
 </div>

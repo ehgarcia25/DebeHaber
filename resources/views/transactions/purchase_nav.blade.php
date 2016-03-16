@@ -9,7 +9,12 @@
 @section('content')
 
 
+<<<<<<< HEAD
 <a class="btn btn-primary btn-lg "  data-toggle="modal" data-target="#myModal">Crear Compra</a>
+=======
+<a class="btn btn-primary btn-lg " href="{{url('compras_form')}}">Crear Compra</a>
+
+>>>>>>> origin/master
 
    <div class="panel-heading clearfix">
 
@@ -72,6 +77,7 @@
            </table>
        </div>
 
+<<<<<<< HEAD
 <div class="col-md-4">
 
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -104,4 +110,8 @@
 <script>
 
 </script>
+=======
+
+
+>>>>>>> origin/master
 @endsection

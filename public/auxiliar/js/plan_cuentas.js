@@ -2,6 +2,7 @@
 
     $('#activos').on('change', function () {
 
+<<<<<<< HEAD
      var padre=$('#activos').val()
      var url= "padre_cuenta/"+padre
      var tipo;
@@ -64,6 +65,16 @@
     }
 
 
+=======
+        var valor = $(this).children(":selected").attr("class");
+
+
+        $('#valor_cuenta').text(valor);
+        $('#valor_cuenta1').val(valor + ".");
+
+    });
+
+>>>>>>> origin/master
 
     $(document).ready(function () {
         $("input[name$='activos']").click(function () {
@@ -154,12 +165,16 @@
 
     function showContent() {
 
+<<<<<<< HEAD
         var tipo = $('.tipo').val();
 
         var tipo_aux= $('#tipo_padre_es').val()
         if(tipo_aux!=""){
             tipo=tipo_aux
         }
+=======
+        var tipo = $('#tipo').val();
+>>>>>>> origin/master
 
         if (tipo == 'activo') {
             element = document.getElementById(tipo);
@@ -204,12 +219,23 @@
         }
     }
 
+<<<<<<< HEAD
     function  showContent2(){
         var tipo = $('.tipo').val();
         var tipo_aux= $('#tipo_padre_es').val()
         if(tipo_aux!=""){
             tipo=tipo_aux
         }
+=======
+
+
+
+
+    $('select#tipo').on('change', function () {
+
+        var tipo = $('#tipo').val();
+
+>>>>>>> origin/master
         if ($('#check').is(':checked')) {
             if (tipo == 'activo') {
                 $('#activo').css('display', 'block');
@@ -243,6 +269,7 @@
                 $('#ingreso').css('display', 'none');
             }
         }
+<<<<<<< HEAD
     }
 
 
@@ -293,11 +320,15 @@
 
             }
         })
+=======
+
+>>>>>>> origin/master
 
     });
 
 
 
+<<<<<<< HEAD
     //$("#edit_node").click(function() {
     //
     //    var cuentas=[]
@@ -461,6 +492,8 @@
 
         $(".companias").easyAutocomplete(options);
     }
+=======
+>>>>>>> origin/master
 
 
     /*$(function () {

@@ -8,7 +8,11 @@
 
 @section('content')
 
+<<<<<<< HEAD
     <a class="btn btn-primary btn-lg " href="{{url('form_cobros')}}">Crear Cobro</a>
+=======
+    <a class="btn btn-primary btn-lg pull-right" href="{{url('form_cobros')}}">Crear Cobro</a>
+>>>>>>> origin/master
     <div class="panel-heading clearfix">
 
     </div>

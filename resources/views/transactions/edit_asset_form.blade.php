@@ -35,7 +35,11 @@
 @endsection
 
 @section('scripts')
+<<<<<<< HEAD
    
+=======
+    <script src="{{url()}}/assets/js/pages/validator.js"></script>
+>>>>>>> origin/master
     <script>
         $('#moneda').change(function (e) {
 

@@ -62,7 +62,18 @@
 
             </div>
         </div>
+<<<<<<< HEAD
     
+=======
+    <div class='form-group'>
+        <label for="razon_social" class="col-sm-3 control-label">Razón Social:</label>
+        <div class="col-sm-7">
+            <input type="text" name="razon_social" class="form-control" value="{{ $empresa->razon_social}}" autocomplete="off" placeholder=""  required
+                   ng-class="{ error: Form.razon_social.$error.required && !Form.$pristine}"/>
+            <div class="text-danger">{{$errors->first('name')}}</div>
+        </div>
+    </div>
+>>>>>>> origin/master
 
 </div>
     <div class="col-md-6">

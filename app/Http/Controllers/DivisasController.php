@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Empresa;
 use Illuminate\Http\Request;
+<<<<<<< HEAD
 use DateTime;
+=======
+
+>>>>>>> origin/master
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Divisas;
@@ -178,10 +182,16 @@ class DivisasController extends Controller
     {
 
 
+<<<<<<< HEAD
        $taza = \App\Divisas_rate::Taza($id)->get();
 
         if(json_decode($taza)!=[])
         return response()->json(array('taza' => $taza[0]->buy_rate));
+=======
+       $taza = \App\Divisas_rate::Taza($id);
+
+        return response()->json(array('taza' => $taza->buy_rate));
+>>>>>>> origin/master
     }
 
     public function getTazas(Request $request,$id){
@@ -197,10 +207,16 @@ class DivisasController extends Controller
 
     }
 
+<<<<<<< HEAD
     public function taza_fecha($fecha1){
 
       $fecha2 = DateTime::createFromFormat('m-d-Y', $fecha1);
           $fecha=  $fecha2->format('Y-m-d');
+=======
+    public function taza_fecha($fecha){
+
+
+>>>>>>> origin/master
         $array_asociativo=array();
         $divisas=new Divisas();
         for($i=0;$i < count($divisas->getDivisas2($fecha));$i++){

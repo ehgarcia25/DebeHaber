@@ -64,10 +64,17 @@ function cargar_elementos() {
     var codigo= array_aux[0]
 
     var tipo;
+<<<<<<< HEAD
     if($('#tipo_retencion').val()==2)
         tipo =2
     else if($('#tipo_retencion').val()==1)
         tipo =1
+=======
+    if($('#tipo_retencion').val()=="Sufrida")
+        tipo ="Venta"
+    else if($('#tipo_retencion').val()=="Emitida")
+        tipo ="Compra"
+>>>>>>> origin/master
 
     var url1="cargar_campos/"+codigo+"/"+tipo
 
@@ -77,7 +84,11 @@ function cargar_elementos() {
             if(data!=""){
                 $('#numero_factura').html("")
                 $.each(data.factura, function(k,v){
+<<<<<<< HEAD
                     $("#numero_factura").append("<option value=\""+v+"\">"+v+"</option>");
+=======
+                    $("#numero_factura").append("<option value=\""+k+"\">"+v+"</option>");
+>>>>>>> origin/master
                     $('#select2-numero_factura-container').attr('title',k)
                     $('#select2-numero_factura-container').text(v)
                 })
@@ -202,6 +213,7 @@ function total(){
 
 
 $('#tipo_retencion').change(function(){
+<<<<<<< HEAD
     var fecha= $('#fecha').val()
    // $("#save_retencion")[0].reset();
     $('#numero_factura').html("")
@@ -216,6 +228,9 @@ $('#tipo_retencion').change(function(){
         $('#mostrar_rango').css('display','block');
         $('#timbrado1').attr('readonly', true)
     }
+=======
+    cargar_elementos()
+>>>>>>> origin/master
 })
 
 function cargar_montos(){
@@ -243,15 +258,23 @@ $('#numero_factura').change(function(){
 })
 
 
+<<<<<<< HEAD
 function cambiar_sucursal(){
 
     var id_sucursal=$('#sucursal').val()
 
     var url= "../cargar_rangos/"+id_sucursal+"/"+3
+=======
+$('#sucursal').change(function (){
+    //
+    var id_sucursal=$('#sucursal').val()
+    var url= "cargar_rangos/"+id_sucursal+"/"+3
+>>>>>>> origin/master
 
     $.get(url,function(data){
 
         if(data!=""){
+<<<<<<< HEAD
 
             console.log(JSON.stringify(data))
             $.each(data, function(k,v){
@@ -260,10 +283,20 @@ function cambiar_sucursal(){
                 //$('#select2-rango-container').text(v)
             })
 
+=======
+            //$('#rango').html("")
+            console.log(JSON.stringify(data))
+
+            $.each(data, function(k,v){
+
+                $("#rango").append("<option value=\""+k+"\">"+v+"</option>");
+            })
+>>>>>>> origin/master
         }
         else{
 
             $('#rango').html("")
+<<<<<<< HEAD
             $('#select2-rango-container').html("")
 
         }
@@ -312,4 +345,28 @@ $(document).ready(function () {
 
 $('#rango').change(function (){
     cambiar_rango()
+=======
+
+        }
+    })
+})
+
+$('#rango').change(function (){
+    //
+    var id=$('#rango').val()
+    var url= "cargar_valor_actual/"+id
+
+    $.get(url,function(data){
+
+        if(data!=""){
+            $('#numero_retencion').val(data.numero_factura)
+            $('#timbrado1').val(data.timbrado_rango)
+        }
+        else{
+
+            $('#numero_retencion').val(null)
+
+        }
+    })
+>>>>>>> origin/master
 })

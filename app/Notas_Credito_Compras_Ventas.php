@@ -11,8 +11,13 @@ class Notas_Credito_Compras_Ventas extends Model
     
      protected $table = 'commercial_returns';
     
+<<<<<<< HEAD
     protected $fillable = ['id_branch', 'costcenter_id', 'currency_rate_id',
         'return_total', 'return_number','return_number_factura', 'return_code', 'motivo', 'series'
+=======
+    protected $fillable = ['customer_id', 'customer_branch_id','supplier_id', 'supplier_branch_id', 'costcenter_id', 'currency_rate_id', 
+        'return_total', 'return_number', 'return_code', 'motivo', 'series'
+>>>>>>> origin/master
         ,'return_date', 'timestamp','tipo','is_accounted_customer','is_accounted_supplier','cost_center_id'];
 //
 

@@ -9,6 +9,7 @@
         <label for="tipo" class="col-sm-3 control-label">Tipo</label>
         <div class="col-sm-7">
             <select class="js-states form-control" tabindex="-1" style="display: none; width: 100%"  name="tipo" id="tipo" required>
+<<<<<<< HEAD
                 <option value="{{$retencion->tipo}}">
                     @if($retencion->tipo==1)
                         Emitidas
@@ -16,6 +17,9 @@
                         Recibidas
                     @endif
                    </option>
+=======
+                <option value="{{$retencion->tipo}}">{{$retencion->tipo}}s</option>
+>>>>>>> origin/master
             </select>
 
         </div>
@@ -25,7 +29,11 @@
     <div class="form-group">
         <label for="series" class="col-sm-3 control-label">Series</label>
         <div class="col-sm-7">
+<<<<<<< HEAD
              {!!  Form::text('series',null,['class'=> 'form-control', 'required','autocomplete'=>'off']) !!}
+=======
+             {!!  Form::text('series',$retencion->series,['class'=> 'form-control', 'required','autocomplete'=>'off','data-mask'=>'00/00/0000','ng-class'=>'{ error: Form.serie.$error.required && !Form.$pristine}']) !!}
+>>>>>>> origin/master
 
 
         </div>
@@ -34,8 +42,12 @@
     <div class="form-group">
         <label for="fecha" class="col-sm-3 control-label">Fecha</label>
         <div class="col-sm-7">
+<<<<<<< HEAD
             {!!  Form::text('fecha',date("m/d/Y", strtotime($retencion->witholding_date)),['class'=> 'form-control date-picker', 'id'=>'fecha', 'required','autocomplete'=>'off','data-mask'=>'00/00/0000','maxlength'=>'10']) !!}
 
+=======
+            {!!  Form::date('witholding_date',$retencion->witholding_date,['class'=> 'form-control', 'id'=>'fecha', 'required','autocomplete'=>'off', 'ng-class'=>'{ error: Form.fecha.$error.required && !Form.$pristine}']) !!}
+>>>>>>> origin/master
         </div>
 
     </div>
@@ -46,8 +58,14 @@
         <label for="contribuyente" class="col-sm-3 control-label">Contribuyente</label>
         <div class="col-sm-7" id="news">
 
+<<<<<<< HEAD
             {!!  Form::text('contribuyente',$micompania->gov_code." ".$micompania->name,['class'=> 'form-control','id'=>'example-ajax-post', 'required','autocomplete'=>'off']) !!}
 
+=======
+            {!!  Form::text('contribuyente',$micompania->gov_code." ".$micompania->name,['class'=> 'form-control','tabindex'=>"-1", 'style'=>"width: 100%",'id'=>'example-ajax-post', 'required','autocomplete'=>'off', 'ng-class'=>'{ error: Form.contribuyente.$error.required && !Form.$pristine}']) !!}
+
+            <input type="hidden" id="valor" name="usuarios" class="form-control" value=""/>
+>>>>>>> origin/master
         </div>
 
         <div class="col-sm-2"  id="mostrar_adicionar_empresa">
@@ -67,7 +85,11 @@
         <div class="col-sm-7">
 
 
+<<<<<<< HEAD
             {!!  Form::text('witholding_code',$retencion->witholding_code,['class'=> 'form-control','id'=>'timbrado', 'readonly','autocomplete'=>'off']) !!}
+=======
+            {!!  Form::select('witholding_code',$timbrado,null,['class'=> 'js-states form-control','tabindex'=>"-1", 'style'=>"display: none; width: 100%",'id'=>'timbrado']) !!}
+>>>>>>> origin/master
         </div>
 
         <div class="col-sm-2" style="display: none;" id="mostrar_edicion_timbrado">
@@ -83,7 +105,11 @@
     <div class="form-group">
         <label for="numero" class="col-sm-3 control-label">Número Retención</label>
         <div class="col-sm-7">
+<<<<<<< HEAD
             {!!  Form::text('witholding_number',$retencion->witholding_number,['class'=> 'form-control','maxlength'=>'15','required' ,'placeholder'=>'000-000-0000000','autocomplete'=>'off']) !!}
+=======
+            {!!  Form::text('witholding_number',$retencion->witholding_number,['class'=> 'form-control','maxlength'=>'15','required' ,'placeholder'=>'000-000-0000000', 'required','autocomplete'=>'off']) !!}
+>>>>>>> origin/master
         </div>
     </div>
 
@@ -101,17 +127,36 @@
     <div class="form-group">
         <label for="moneda" class="col-sm-3 control-label">Moneda</label>
         <div class="col-sm-7">
+<<<<<<< HEAD
             {!!  Form::text('moneda1',$mimoneda,['class'=> 'form-control','id'=>'moneda1', 'readonly']) !!}
             {!!  Form::hidden('moneda',null,['class'=> 'form-control','id'=>'taza', 'readonly']) !!}
 
         </div>
 
+=======
+            <select class="js-states form-control" tabindex="-1" style="display: none; width: 100%"  name="currency_rate_id" id="moneda" required>
+                <option value="{{$mimoneda->id}}" >{{$mimoneda->name}}</option>
+                @foreach($moneda as $item)
+                    <option value="{{$item->id}}.{{$item->name}}">{{$item->name}}</option>
+                @endforeach
+            </select>
+
+        </div>
+        <div class="col-sm-2">
+            <a href="#!" id="taza_cambio" data-type="text" data-pk="1" data-title="Enter username"
+               class="editable editable-click" style="display: inline;">{{$mitaza->buy_rate}}</a>
+        </div>
+>>>>>>> origin/master
     </div>
 
     <div class="form-group">
         <label for="retencion" class="col-sm-3 control-label">% Retención</label>
         <div class="col-sm-7">
+<<<<<<< HEAD
             {!!  Form::text('retencion',$retencion->retencion,['class'=> 'form-control', 'required','id'=>'retencion','autocomplete'=>'off']) !!}
+=======
+            {!!  Form::text('retencion',$retencion->retencion,['class'=> 'form-control', 'required','id'=>'retencion','autocomplete'=>'off','ng-model'=>'formData.retencion','ng-init' => "formData.retencion=$retencion->retencion", 'ng-class'=>'{ error: Form.retencion.$error.required && !Form.$pristine}']) !!}
+>>>>>>> origin/master
         </div>
 
         <div class="col-sm-2">
@@ -123,7 +168,11 @@
     <div class="form-group">
         <label for="valor_sin_iva" class="col-sm-3 control-label">Valor sin IVA</label>
         <div class="col-sm-4">
+<<<<<<< HEAD
             {!!  Form::text('valor_sin_iva',null,['class'=> 'form-control','id'=>'valor_sin_iva', 'required','autocomplete'=>'off']) !!}
+=======
+            {!!  Form::text('valor_sin_iva',null,['class'=> 'form-control','id'=>'valor_sin_iva', 'required','autocomplete'=>'off','ng-model'=>'formData.valor_sin_iva', 'ng-init' => "formData.valor_sin_iva=$retencion->valor_sin_iva", 'ng-class'=>'{ error: Form.valor_sin_iva.$error.required && !Form.$pristine}']) !!}
+>>>>>>> origin/master
         </div>
 
     </div>
@@ -131,7 +180,11 @@
     <div class="form-group">
         <label for="iva" class="col-sm-3 control-label"> IVA </label>
         <div class="col-sm-4">
+<<<<<<< HEAD
             {!!  Form::text('iva',null,['class'=> 'form-control','id'=>'iva', 'required','autocomplete'=>'off']) !!}
+=======
+            {!!  Form::text('iva',null,['class'=> 'form-control','id'=>'iva', 'required','autocomplete'=>'off','ng-model'=>'formData.iva', 'ng-init' => "formData.iva=$retencion->iva", 'ng-class'=>'{ error: Form.iva.$error.required && !Form.$pristine}']) !!}
+>>>>>>> origin/master
         </div>
 
     </div>

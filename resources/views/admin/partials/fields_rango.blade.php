@@ -1,7 +1,13 @@
 
+<<<<<<< HEAD
 use Symfony\Component\DomCrawler\Form;
 <div class="form-group">
     <label for="tipo" class="col-sm-3 control-label">Tipo Documento </label>
+=======
+<div class="form-group">
+    <label for="tipo" class="col-sm-3 control-label">Tipo Documento </label>
+
+>>>>>>> origin/master
     <div class="col-sm-7">
         {!!  Form::select('tipo',['1'=>'Venta','2'=>'Cobro','3'=>'Retención Emitida','4'=>'Nota Crédito'],null,['class'=> 'form-control','id'=>'id_branch'] ) !!}
     </div>
@@ -10,7 +16,11 @@ use Symfony\Component\DomCrawler\Form;
 <div class="form-group">
     <label for="star_range" class="col-sm-3 control-label">Nombre </label>
     <div class="col-sm-7">
+<<<<<<< HEAD
         {!!  Form::text('name',null,['class'=> 'form-control','id'=>'star_range', 'required','autocomplete'=>'off']) !!}
+=======
+        {!!  Form::text('name',null,['class'=> 'form-control','id'=>'star_range', 'required']) !!}
+>>>>>>> origin/master
     </div>
 </div>
 
@@ -19,27 +29,40 @@ use Symfony\Component\DomCrawler\Form;
 
     <div class="col-sm-7">
         {{--{!!  Form::select('id_branch',$sucursal,null,['class'=> 'form-control','id'=>'id_branch'] ) !!}--}}
+<<<<<<< HEAD
         {!!  Form::select('id_branch',$sucursal,null,['class'=> 'form-control','id'=>'id_sucursal','autocomplete'=>'off'] ) !!}
+=======
+        {!!  Form::select('id_branch',$sucursal,null,['class'=> 'form-control','id'=>'id_sucursal'] ) !!}
+>>>>>>> origin/master
     </div>
 </div>
 <div class="form-group">
     <label for="id_terminal" class="col-sm-3 control-label">Terminal </label>
 
     <div class="col-sm-7">
+<<<<<<< HEAD
         {!!  Form::select('id_terminal',$terminal,null,['class'=> 'form-control','id'=>'id_terminal','autocomplete'=>'off'] ) !!}
         
+=======
+        {!!  Form::select('id_terminal',[''=>''],null,['class'=> 'form-control','id'=>'id_terminal'] ) !!}
+>>>>>>> origin/master
     </div>
 </div>
 
 <div class="form-group">
     <label for="star_range" class="col-sm-3 control-label">Inicio </label>
     <div class="col-sm-7">
+<<<<<<< HEAD
         {!!  Form::text('star_range',null,['class'=> 'form-control','id'=>'star_range', 'required','autocomplete'=>'off']) !!}
+=======
+        {!!  Form::text('star_range',null,['class'=> 'form-control','id'=>'star_range', 'required']) !!}
+>>>>>>> origin/master
     </div>
 </div>
 <div class="form-group">
     <label for="end_range" class="col-sm-3 control-label">Fin</label>
     <div class="col-sm-7">
+<<<<<<< HEAD
         {!!  Form::text('end_range',null,['class'=> 'form-control','id'=>'end_range', 'required','autocomplete'=>'off']) !!}
     </div>
 </div>
@@ -48,12 +71,23 @@ use Symfony\Component\DomCrawler\Form;
     <label for="current_range" class="col-sm-3 control-label">Actual</label>
     <div class="col-sm-7">
         {!!  Form::text('current_range',null,['class'=> 'form-control','id'=>'current_range','autocomplete'=>'off']) !!}
+=======
+        {!!  Form::text('end_range',null,['class'=> 'form-control','id'=>'end_range', 'required']) !!}
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="current_range" class="col-sm-3 control-label">Actual</label>
+    <div class="col-sm-7">
+        {!!  Form::text('current_range',0,['class'=> 'form-control','id'=>'current_range', 'required']) !!}
+>>>>>>> origin/master
     </div>
 </div>
 
 <div class="form-group">
     <label for="mask" class="col-sm-3 control-label">Máscara</label>
     <div class="col-sm-7">
+<<<<<<< HEAD
         {!!  Form::text('mask',null,['class'=> 'form-control','id'=>'mask', 'required','autocomplete'=>'off']) !!}
     </div>
 </div>
@@ -62,21 +96,39 @@ use Symfony\Component\DomCrawler\Form;
     <label for="template" class="col-sm-3 control-label">Plantilla</label>
     <div class="col-sm-7">
         {!!  Form::textarea('template','branch#terminal#mask',['class'=> 'form-control','readonly','id'=>'template', 'required','rows'=>'5','autocomplete'=>'off']) !!}
+=======
+        {!!  Form::text('mask',null,['class'=> 'form-control','id'=>'mask', 'required']) !!}
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="template" class="col-sm-3 control-label">Plantilla</label>
+    <div class="col-sm-7">
+        {!!  Form::textarea('template','branch#terminal#mask',['class'=> 'form-control','readonly','id'=>'template', 'required','rows'=>'5']) !!}
+>>>>>>> origin/master
     </div>
 </div>
 
 <div class="form-group">
     <label for="end_date" class="col-sm-3 control-label">Fecha Vencimiento</label>
     <div class="col-sm-7">
+<<<<<<< HEAD
         {{--{!!  Form::text('end_date',null,['class'=> 'form-control date-picker','id'=>'end_date', 'required','autocomplete'=>'off','data-mask'=>'00/00/0000','data-date-format'=>"dd/mm/yyyy",'maxlength'=>'10']) !!}--}}
         {!!  Form::text('end_date',null,['class'=> 'form-control date-picker', 'id'=>'fecha', 'required','autocomplete'=>'off','data-mask'=>'00/00/0000','maxlength'=>'10']) !!}
+=======
+        {!!  Form::text('end_date',null,['class'=> 'form-control date-picker', 'data-date-format'=>"yyyy-mm-dd",'id'=>'end_date', 'required']) !!}
+>>>>>>> origin/master
     </div>
 </div>
 
 <div class="form-group">
     <label for="code" class="col-sm-3 control-label">Timbrado</label>
     <div class="col-sm-7">
+<<<<<<< HEAD
         {!!  Form::text('code',null,['class'=> 'form-control','id'=>'code', 'required','maxlength'=>'8']) !!}
+=======
+        {!!  Form::text('code',null,['class'=> 'form-control','id'=>'code', 'required']) !!}
+>>>>>>> origin/master
     </div>
 </div>
 
@@ -84,3 +136,7 @@ use Symfony\Component\DomCrawler\Form;
 {!!  Form::hidden('id_company',Session::get('id_empresa'),['class'=> 'form-control','id'=>'empresa']) !!}
 
 {!!  Form::hidden('id_user',Auth::user()->id,['class'=> 'form-control','id'=>'user']) !!}
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master

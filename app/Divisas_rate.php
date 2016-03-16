@@ -16,6 +16,7 @@ class Divisas_rate extends Model
 
 
     public function scopeTaza($query,$id){
+<<<<<<< HEAD
         $result= $query->where('id',$id)->where('buy_rate','!=',1);
         return $result;
     }
@@ -23,6 +24,12 @@ class Divisas_rate extends Model
 
 
 
+=======
+        $result= $query->find($id);
+        return $result;
+    }
+
+>>>>>>> origin/master
     public function scopeTaza_fecha($query,$fecha){
         return $query->where('trans_date',$fecha);
     }

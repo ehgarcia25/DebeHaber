@@ -23,7 +23,11 @@
 <table id="example" class="display table" style="width: 100%; cellspacing: 0;">
     <thead>
         <tr>
+<<<<<<< HEAD
             <th>S.No</th><th>Nombre</th><th>Fecha Vencimiento</th><th>Acciones</th>
+=======
+            <th>S.No</th><th>Fecha Vencimiento</th><th>Acciones</th>
+>>>>>>> origin/master
         </tr>
     </thead>
     <tbody>
@@ -33,9 +37,12 @@
         <tr data-id="{{$item->id}}">
             <td>{{ $x }}</td>
             <td  >
+<<<<<<< HEAD
                 {{$item->name}}
             </td>
             <td  >
+=======
+>>>>>>> origin/master
                {{$item->end_date}}
             </td>
 
@@ -43,6 +50,7 @@
                 <a href="{{url('edit_rango_form', $item)}}" style="display: inline;" class="">
                     <i class="glyphicon glyphicon-pencil"></i>
 
+<<<<<<< HEAD
                 </a>/
 
                 <a href="{{url('delete_rango', $item)}}" style="display: inline;" class=""  id="{{$x}}" >
@@ -50,6 +58,16 @@
                 </a>
 
 
+=======
+                </a>
+
+
+                {{--<a href="#!" style="display: inline;" class="delete_empresa"  id="{{$x}}" >--}}
+                   {{--<i class="glyphicon glyphicon-trash"></i>--}}
+                {{--</a>--}}
+
+
+>>>>>>> origin/master
 
             </td>
         </tr>

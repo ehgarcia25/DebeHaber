@@ -45,6 +45,7 @@
         </form>
     </div>
 
+<<<<<<< HEAD
 
 <div class="col-md-4">
             <!-- Button trigger modal -->
@@ -81,6 +82,8 @@
                 </div>
             </div>
         
+=======
+>>>>>>> origin/master
 @endsection
 
 @section('scripts')

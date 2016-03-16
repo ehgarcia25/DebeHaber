@@ -4,6 +4,7 @@
 
 
 
+<<<<<<< HEAD
 $('#fecha').datepicker({ autoclose: true, format: 'mm/dd/yyyy'}).on("changeDate", function(e) {
 
     var fecha= $('#fecha').val()
@@ -29,11 +30,27 @@ $('#fecha').datepicker({ autoclose: true, format: 'mm/dd/yyyy'}).on("changeDate"
             $(".moneda").html("")
 
         }
+=======
+$('#fecha').datepicker({ autoclose: true,}).on("changeDate", function(e) {
+
+    var fecha= $('#fecha').val()
+    var url= "taza_cambio_fecha/"+fecha
+    $.get(url,function(data){
+
+        if(data!=[]){
+            $("#moneda").html("")
+            $.each(data, function(k,v){
+
+                $("#moneda").append("<option value=\""+k+"\">"+v+"</option>");
+            })
+        }
+>>>>>>> origin/master
 
     })
     });
 
 
+<<<<<<< HEAD
     $('#moneda').change(function (e) {
 
         if($('#moneda').val()!=""){
@@ -120,3 +137,5 @@ $('#crear_session_sucursal').change(function(){
         })
     }
 })
+=======
+>>>>>>> origin/master
