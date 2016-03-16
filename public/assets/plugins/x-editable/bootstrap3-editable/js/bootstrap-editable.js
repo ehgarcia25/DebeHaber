@@ -4418,7 +4418,7 @@ $(function(){
         //initial value, can be `new Date()`    
         value: null,                       
         minYear: 1970,
-        maxYear: 2015,
+        maxYear: 2030,
         yearDescending: true,
         minuteStep: 5,
         secondStep: 1,
@@ -4678,7 +4678,7 @@ Editableform based on Twitter Bootstrap 3
     
     //buttons
     $.fn.editableform.buttons = 
-      '<button type="submit" class="btn btn-primary btn-sm editable-submit">'+
+      '<button type="submit" class="btn btn-primary btn-sm editable-submit" id="fecha_timbrado">'+
         '<i class="glyphicon glyphicon-ok"></i>'+
       '</button>'+
       '<button type="button" class="btn btn-default btn-sm editable-cancel">'+

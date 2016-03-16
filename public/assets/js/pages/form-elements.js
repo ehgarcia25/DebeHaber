@@ -3,10 +3,19 @@ $(document).ready(function() {
 	  height: 350
 	});
     
-    $('.date-picker').datepicker({
+
+       
+	if($('#fecha').val()==""){
+		
+	$('.date-picker').datepicker({
         orientation: "top auto",
-        autoclose: true
-    });
+        autoclose: true,
+    })
+	.datepicker("setDate", new Date());
+	
+	}
+    
+	
     
     $('#cp1').colorpicker({
         format: 'hex'

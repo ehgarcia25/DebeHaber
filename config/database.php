@@ -55,7 +55,7 @@ return [
         'mysql' => [
             'driver'    => 'mysql',
             'host'      => env('DB_HOST', 'localhost'),
-            'database'  => env('DB_DATABASE', 'debehaber'),
+            'database'  => env('DB_DATABASE', 'mydb'),
             'username'  => env('DB_USERNAME', 'root'),
             'password'  => env('DB_PASSWORD', 'root'),
             'charset'   => 'utf8',
@@ -63,6 +63,17 @@ return [
             'prefix'    => '',
             'strict'    => false,
         ],
+		'comments'  => [
+    'driver'     => 'mysql',
+    'host'       => env('COMMENTS_HOST', 'localhost'),
+    'database'   => env('COMMENTS_DATABASE', 'elcamino'),
+    'username'   => env('COMMENTS_USERNAME', 'root'),
+    'password'   => env('COMMETNS_PASSWORD', 'root'),
+    'charset'    => 'utf8',
+    'collation'  => 'utf8_unicode_ci',
+    'prefix'     => '',
+    'strict'     => false,
+     ],
 
         // 'pgsql' => [
         //     'driver'   => 'pgsql',

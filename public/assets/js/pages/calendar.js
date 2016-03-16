@@ -45,71 +45,92 @@ $(document).ready(function() {
     var month = date.getMonth();
     var year = date.getFullYear();
     
-    $('#calendar').fullCalendar({
-       
+    $(document).ready(function() {
+		
+		$('#calendar').fullCalendar({
 			header: {
 				left: 'prev,next today',
 				center: 'title',
 				right: 'month,agendaWeek,agendaDay'
 			},
-            editable: true,
-            droppable: true, // this allows things to be dropped onto the calendar
+			defaultDate: '2016-01-12',
+			selectable: true,
+			selectHelper: true,
+			select: function(start, end) {
+				var title = prompt('Event Title:');
+				var eventData;
+				if (title) {
+					eventData = {
+						title: title,
+						start: start,
+						end: end
+					};
+					$('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
+				}
+				$('#calendar').fullCalendar('unselect');
+			},
+			editable: true,
+			  droppable: true,
 			eventLimit: true, // allow "more" link when too many events
 			events: [
 				{
 					title: 'All Day Event',
-					start: new Date(year, month, day-8)
+					start: '2016-01-01'
 				},
 				{
 					title: 'Long Event',
-					start: new Date(year, month, day-5),
-					end: new Date(year, month, day-2)
+					start: '2016-01-07',
+					end: '2016-01-10'
 				},
 				{
 					id: 999,
 					title: 'Repeating Event',
-					start: new Date(year, month, day)
+					start: '2016-01-09T16:00:00'
 				},
 				{
 					id: 999,
 					title: 'Repeating Event',
-					start: new Date(year, month, day+7)
+					start: '2016-01-16T16:00:00'
 				},
 				{
 					title: 'Conference',
-					start: new Date(year, month, day+3),
-					end: new Date(year, month, day+6)
+					start: '2016-01-11',
+					end: '2016-01-13'
 				},
 				{
 					title: 'Meeting',
-					start: new Date(year, month, day+5)
+					start: '2016-01-12T10:30:00',
+					end: '2016-01-12T12:30:00'
 				},
 				{
 					title: 'Lunch',
-					start: new Date(year, month, day+7)
+					start: '2016-01-12T12:00:00'
 				},
 				{
 					title: 'Meeting',
-					start: new Date(year, month, day+10)
+					start: '2016-01-12T14:30:00'
 				},
 				{
 					title: 'Happy Hour',
-					start: new Date(year, month, day+10)
+					start: '2016-01-12T17:30:00'
 				},
 				{
 					title: 'Dinner',
-					start: new Date(year, month, day+13)
+					start: '2016-01-12T20:00:00'
 				},
 				{
 					title: 'Birthday Party',
-					start: new Date(year, month, day+15)
+					start: '2016-01-13T07:00:00'
 				},
 				{
 					title: 'Click for Google',
 					url: 'http://google.com/',
-					start: new Date(year, month, day+18)
+					start: '2016-01-28'
 				}
 			]
 		});
+		
+	});
+
     
 });

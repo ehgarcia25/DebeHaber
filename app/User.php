@@ -28,7 +28,7 @@ class User extends Model implements AuthenticatableContract,
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = ['role_id','company_id','name','name_full', 'email','password','telephone','direction'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -36,4 +36,33 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+
+    public function Empresa()
+    {
+        return $this->belongsTo('App\Empresa');
+    }
+
+    public function scopeCompany($query, $id_company)
+    {
+
+        return $query->join('companies', 'users.company_id','=', 'companies.id')->select('companies.*')
+            ->where('companies.accounting_id',$id_company)
+            ->get();
+    }
+
+    public function scopeName($query, $id)
+    {
+
+        return $query->select('name')
+            ->where('id',$id);
+    }
+
+    public function scopeBuscar($query,$name)
+    {
+        if(trim($name)!=""){
+            return $query->where('name','LIKE',"%$name%");
+        }
+
+    }
 }

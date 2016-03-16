@@ -5,13 +5,16 @@
 @section('breadcrumbs', Breadcrumbs::render('asset_form'))
 
 @section('content')
+    <style>
+        .error {
+            border-color: red;
+        }
 
-<link href="assets/plugins/x-editable/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet" type="text/css">
-<link href="assets/plugins/x-editable/inputs-ext/typeaheadjs/lib/typeahead.js-bootstrap.css" rel="stylesheet" type="text/css">
-<link href="assets/plugins/x-editable/inputs-ext/address/address.css" rel="stylesheet" type="text/css">
-<link href="assets/plugins/select2-3.4.8/select2.css" rel="stylesheet" type="text/css">
-<link href="assets/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css">
-<link href="assets/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" type="text/css">
+        .warning {
+            border-color: yellow;
+        }
+    </style>
+
 
 <!-- <script>
 $(document).ready(function() {
@@ -37,77 +40,13 @@ $(document).ready(function() {
 });
 </script> -->
 
-<form class="form-horizontal" action="index.html" method="post">
-<div class="col-md-8">
-    <div class="form-group">
-        <label for="inputEmail3" class="col-sm-3 control-label">Nombre</label>
-        <div class="col-sm-7">
-            <input type="text" class="form-control" id="tbxDocument" placeholder="Nombre del Activo Comprado">
-        </div>
-        <div class="col-sm-2">
 
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="inputEmail3" class="col-sm-3 control-label">Grupo</label>
-        <div class="col-sm-7">
-            <select class="selectpicker" data-live-search="true">
-                <option>Mustard</option>
-                <option>Ketchup</option>
-                <option>Mayonnese</option>
-            </select>
-        </div>
-        <div class="col-sm-2">
-
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="inputEmail3" class="col-sm-3 control-label">Nro de Serie</label>
-        <div class="col-sm-7">
-            <input type="text" class="form-control" id="tbxDocument" placeholder="Numero del Activo">
-        </div>
-        <div class="col-sm-2">
-            <button type="button" name="button">Generar</button>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="inputEmail3" class="col-sm-3 control-label">Cantidad</label>
-        <div class="col-sm-7">
-            <input type="text" class="form-control date-picker">
-        </div>
-        <div class="col-sm-2">
-
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="inputPassword3" class="col-sm-3 control-label">Fecha de Adquisition</label>
-        <div class="col-sm-7">
-            <input type="text" class="form-control" id="tbxDocument" placeholder="Numero de la Factura">
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="inputPassword3" class="col-sm-3 control-label">Costo de Adquisicion</label>
-        <div class="col-sm-7">
-            <input type="text" class="form-control" id="tbxDocument" placeholder="Plazo del Cobro">
-        </div>
-        <div class="col-sm-2">
-            <a href="#" id="timbrado" data-type="text" data-pk="1" data-title="Enter username" class="editable editable-click" style="display: inline;">Crédito</a>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="inputPassword3" class="col-sm-3 control-label">Moneda</label>
-        <div class="col-sm-7">
-            <input type="text" class="form-control" id="tbxDocument" placeholder="Tipo de Factura">
-        </div>
-        <div class="col-sm-2">
-            <a href="#" id="timbrado" data-type="text" data-pk="1" data-title="Enter username" class="editable editable-click" style="display: inline;">10019821</a>
-        </div>
-    </div>
-    <div class="col-sm-3">
-    <!-- Empty Space to push DataGrid  -->
-    </div>
+{!! Form::open(array('url'=> 'save_activos_form', 'method'=> 'post','class'=>'form-horizontal', 'id'=>'form_save_activos','data-toggle'=>"validator", 'role'=>"form")) !!}
+    {!! csrf_field() !!}
+    <div class="col-md-8">
+  @include('transactions.partials.fields_assets')
 </div>
-<div class="col-md-4">
+<div class="col-md-8">
     <!-- <h2>Nombre del Cliente</h2>
     <h5>80001930-2</h5>
     <div class="row">
@@ -128,20 +67,26 @@ $(document).ready(function() {
         </span>
     </div> -->
 
+    {{--<div class="form-group">--}}
+        {{--<label for="inputPassword3" class="control-label">Concepto</label>--}}
+        {{--<div class="note-editable" contenteditable="true" spellcheck="true" lang="es"></div>--}}
+    {{--</div>--}}
+
     <div class="form-group">
-        <label for="inputPassword3" class="control-label">Concepto</label>
-        <div class="note-editable" contenteditable="true" spellcheck="true" lang="es"></div>
-    </div>
-    <div class="form-group">
+        <label for="plazo" class="col-sm-3 control-label"></label>
         <button type="submit" class="btn btn-success">Guardar</button>
     </div>
 </div>
-</form>
+  {!! Form::close() !!}
 
-<!-- <script src="assets/plugins/x-editable/bootstrap3-editable/js/bootstrap-editable.js"></script>
-<script src="assets/plugins/x-editable/inputs-ext/typeaheadjs/lib/typeahead.js"></script>
-<script src="assets/plugins/x-editable/inputs-ext/typeaheadjs/typeaheadjs.js"></script>
-<script src="assets/plugins/x-editable/inputs-ext/address/address.js"></script>
-<script src="assets/plugins/select2-3.4.8/select2.min.js"></script>
-<script src="assets/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script> -->
+</div>
+
+    </div>
+
+    @include('admin.partials.form_auxilar')
+@endsection
+
+@section('scripts')
+
+
 @endsection

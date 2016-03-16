@@ -2,7 +2,9 @@ $( document ).ready(function() {
     // Basic
     $('#basicTree').jstree({
 		'core' : {
+			'check_callback' : true,
 			'themes' : {
+				"icons":false,
 				'responsive': false
 			}
 		},
@@ -18,8 +20,11 @@ $( document ).ready(function() {
     });
     
     // Checkbox
+	
     $('#checkTree').jstree({
 		'core' : {
+			
+			'check_callback' : true,
 			'themes' : {
 				'responsive': false
 			}
@@ -33,7 +38,8 @@ $( document ).ready(function() {
             }
         },
         'plugins' : ['types', 'checkbox']
-    });
+    })
+
     
     // Drag & Drop
     $('#dragTree').jstree({

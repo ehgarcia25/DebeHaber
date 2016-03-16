@@ -15,4 +15,8 @@ $(document).ready(function() {
     $(".js-example-data-array").select2({
         data: data
     });
+	
+	
+	
+	
 });

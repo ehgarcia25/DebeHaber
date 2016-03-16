@@ -130,7 +130,25 @@ $(function(){
         } 
     });  
         
-    $('#dob').editable();
+    $('.cambiar').editable({
+			
+		format: 'YYYY-MM-DD',    
+        viewformat: 'DD/MM/YYYY',    
+        template: 'D / MMMM / YYYY',   
+      
+        combodate: {
+			    value: new Date(),
+                minYear: 2000,
+                maxYear: moment().format('YYYY') ,
+                minuteStep: 1
+           },
+	
+    success: function(response, newValue) {
+    $('#fecha_vencimiento').val(moment(newValue).format('YYYY-MM-DD'))
+       
+    }        
+	});
+	
           
     $('#event').editable({
         placement: 'right',
